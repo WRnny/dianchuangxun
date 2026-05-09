@@ -6,7 +6,7 @@ volatile uint32_t uwTick = 0;
  * @brief 这个函数用于传递一个全局变量uwTick，作为程序运行时间的基准
  * 
  * @note 默认每1ms执行一次Systick中断服务程序中递增一次
- * 11
+ * 
  */
 void WR_IncTik(void)
 {
