@@ -5,17 +5,17 @@
             "includePath": [
                 "d:\\ti\\mspm0_sdk_2_04_00_06\\source\\third_party\\CMSIS\\Core\\Include",
                 "d:\\ti\\mspm0_sdk_2_04_00_06\\source",
-                "d:\\ti\\mspm0_sdk_2_04_00_06\\my_prepare\\User\\Inc",
-                "d:\\ti\\mspm0_sdk_2_04_00_06\\my_prepare\\",
-                "d:\\ti\\mspm0_sdk_2_04_00_06\\my_prepare\\bsp\\Inc",
+                "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun\\User\\Inc",
+                "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun\\",
+                "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun\\bsp\\Inc",
                 "D:\\keil5\\ARM\\ARMCLANG\\include",
                 "D:\\keil5\\ARM\\ARMCLANG\\include\\arm_linux",
                 "D:\\keil5\\ARM\\ARMCLANG\\include\\arm_linux_compat",
                 "D:\\keil5\\ARM\\ARMCLANG\\include\\libcxx",
-                "d:\\ti\\mspm0_sdk_2_04_00_06\\my_prepare",
-                "d:\\ti\\mspm0_sdk_2_04_00_06\\my_prepare\\keil",
-                "d:\\ti\\mspm0_sdk_2_04_00_06\\my_prepare\\User\\Src",
-                "d:\\ti\\mspm0_sdk_2_04_00_06\\my_prepare\\bsp\\Src"
+                "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun",
+                "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun\\keil",
+                "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun\\User\\Src",
+                "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun\\bsp\\Src"
             ],
             "defines": [
                 "__MSPM0G3507__",
