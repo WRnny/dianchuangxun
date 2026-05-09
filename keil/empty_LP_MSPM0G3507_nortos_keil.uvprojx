@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\User\Inc;..\;..\bsp\Inc</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\User\Inc;..\;..\bsp\Inc;..\bsp\Inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -428,6 +428,11 @@
               <FileName>bsp_key.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\bsp\Src\bsp_key.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\bsp\Src\bsp_uart.c</FilePath>
             </File>
           </Files>
         </Group>

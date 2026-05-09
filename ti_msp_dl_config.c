@@ -50,17 +50,25 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
     SYSCFG_DL_GPIO_init();
     /* Module-Specific Initializations*/
     SYSCFG_DL_SYSCTL_init();
+    SYSCFG_DL_Debug_UART_init();
+    SYSCFG_DL_DMA_init();
     SYSCFG_DL_SYSTICK_init();
 }
+
+
 
 SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
 {
     DL_GPIO_reset(GPIOA);
     DL_GPIO_reset(GPIOB);
+    DL_UART_Main_reset(Debug_UART_INST);
+
 
 
     DL_GPIO_enablePower(GPIOA);
     DL_GPIO_enablePower(GPIOB);
+    DL_UART_Main_enablePower(Debug_UART_INST);
+
 
     delay_cycles(POWER_STARTUP_DELAY);
 }
@@ -70,6 +78,11 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 
     DL_GPIO_initPeripheralAnalogFunction(GPIO_HFXIN_IOMUX);
     DL_GPIO_initPeripheralAnalogFunction(GPIO_HFXOUT_IOMUX);
+
+    DL_GPIO_initPeripheralOutputFunction(
+        GPIO_Debug_UART_IOMUX_TX, GPIO_Debug_UART_IOMUX_TX_FUNC);
+    DL_GPIO_initPeripheralInputFunction(
+        GPIO_Debug_UART_IOMUX_RX, GPIO_Debug_UART_IOMUX_RX_FUNC);
 
     DL_GPIO_initDigitalOutputFeatures(Debug_led_Debug_led1_IOMUX,
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_DOWN,
@@ -115,6 +128,70 @@ SYSCONFIG_WEAK void SYSCFG_DL_SYSCTL_init(void)
     DL_SYSCTL_setULPCLKDivider(DL_SYSCTL_ULPCLK_DIV_2);
     DL_SYSCTL_setMCLKSource(SYSOSC, HSCLK, DL_SYSCTL_HSCLK_SOURCE_SYSPLL);
 
+}
+
+
+
+static const DL_UART_Main_ClockConfig gDebug_UARTClockConfig = {
+    .clockSel    = DL_UART_MAIN_CLOCK_BUSCLK,
+    .divideRatio = DL_UART_MAIN_CLOCK_DIVIDE_RATIO_1
+};
+
+static const DL_UART_Main_Config gDebug_UARTConfig = {
+    .mode        = DL_UART_MAIN_MODE_NORMAL,
+    .direction   = DL_UART_MAIN_DIRECTION_TX_RX,
+    .flowControl = DL_UART_MAIN_FLOW_CONTROL_NONE,
+    .parity      = DL_UART_MAIN_PARITY_NONE,
+    .wordLength  = DL_UART_MAIN_WORD_LENGTH_8_BITS,
+    .stopBits    = DL_UART_MAIN_STOP_BITS_ONE
+};
+
+SYSCONFIG_WEAK void SYSCFG_DL_Debug_UART_init(void)
+{
+    DL_UART_Main_setClockConfig(Debug_UART_INST, (DL_UART_Main_ClockConfig *) &gDebug_UARTClockConfig);
+
+    DL_UART_Main_init(Debug_UART_INST, (DL_UART_Main_Config *) &gDebug_UARTConfig);
+    /*
+     * Configure baud rate by setting oversampling and baud rate divisors.
+     *  Target baud rate: 9600
+     *  Actual baud rate: 9599.81
+     */
+    DL_UART_Main_setOversampling(Debug_UART_INST, DL_UART_OVERSAMPLING_RATE_16X);
+    DL_UART_Main_setBaudRateDivisor(Debug_UART_INST, Debug_UART_IBRD_40_MHZ_9600_BAUD, Debug_UART_FBRD_40_MHZ_9600_BAUD);
+
+
+    /* Configure Interrupts */
+    DL_UART_Main_enableInterrupt(Debug_UART_INST,
+                                 DL_UART_MAIN_INTERRUPT_DMA_DONE_RX);
+
+    /* Configure DMA Receive Event */
+    DL_UART_Main_enableDMAReceiveEvent(Debug_UART_INST, DL_UART_DMA_INTERRUPT_RX);
+    /* Configure FIFOs */
+    DL_UART_Main_enableFIFOs(Debug_UART_INST);
+    DL_UART_Main_setRXFIFOThreshold(Debug_UART_INST, DL_UART_RX_FIFO_LEVEL_3_4_FULL);
+    DL_UART_Main_setTXFIFOThreshold(Debug_UART_INST, DL_UART_TX_FIFO_LEVEL_1_2_EMPTY);
+
+    DL_UART_Main_enable(Debug_UART_INST);
+}
+
+static const DL_DMA_Config gDebug_DMAConfig = {
+    .transferMode   = DL_DMA_FULL_CH_REPEAT_SINGLE_TRANSFER_MODE,
+    .extendedMode   = DL_DMA_NORMAL_MODE,
+    .destIncrement  = DL_DMA_ADDR_INCREMENT,
+    .srcIncrement   = DL_DMA_ADDR_UNCHANGED,
+    .destWidth      = DL_DMA_WIDTH_BYTE,
+    .srcWidth       = DL_DMA_WIDTH_BYTE,
+    .trigger        = Debug_UART_INST_DMA_TRIGGER,
+    .triggerType    = DL_DMA_TRIGGER_TYPE_EXTERNAL,
+};
+
+SYSCONFIG_WEAK void SYSCFG_DL_Debug_DMA_init(void)
+{
+    DL_DMA_setTransferSize(DMA, Debug_DMA_CHAN_ID, 256);
+    DL_DMA_initChannel(DMA, Debug_DMA_CHAN_ID , (DL_DMA_Config *) &gDebug_DMAConfig);
+}
+SYSCONFIG_WEAK void SYSCFG_DL_DMA_init(void){
+    SYSCFG_DL_Debug_DMA_init();
 }
 
 

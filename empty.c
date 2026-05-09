@@ -33,6 +33,7 @@
 #include "ti_msp_dl_config.h"
 #include "my_Ticks.h"
 #include "bsp_key.h"
+#include "bsp_uart.h"
 
 void LED_Test(void)
 {
@@ -42,11 +43,18 @@ void LED_Test(void)
 int main(void)
 {
     SYSCFG_DL_init();
+    BspDMA_Init();
 
     while (1) 
     {
-       BSP_KeyTask();
-       WR_KeyControlTask(LED_Test, &bsp_key_param[0].key_longpressflag);
+        if(dma_rx_buffer[0] == '1')
+        {
+            DL_GPIO_togglePins(Debug_led_PORT, Debug_led_Debug_led1_PIN);
+            dma_rx_buffer[0] = 0;
+        }
+        BSP_KeyTask();
+        WR_KeyControlTask(LED_Test, &bsp_key_param[0].key_longpressflag);
+        printf("Hello World!\r\n");
     }
 }
 
