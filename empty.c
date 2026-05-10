@@ -32,8 +32,10 @@
 
 #include "ti_msp_dl_config.h"
 #include "my_Ticks.h"
+
 #include "bsp_key.h"
 #include "bsp_uart.h"
+#include "bsp_track.h"
 #include "bsp_motor.h"
 #include "bsp_buzzer.h"
 #include "bsp_encoder.h"
@@ -67,13 +69,16 @@ int main(void)
 
         // 不能用printf会卡死
         // printf("%f, %f\r\n", (float)bsp_encoder_param[E1].count, (float)bsp_encoder_param[E2].count);
-        vofa_arry[0] = bsp_encoder_param[E1].speed;
-        vofa_arry[1] = bsp_encoder_param[E2].speed;
-        vofa_arry[2] = bsp_encoder_param[E1].distance;
-        vofa_arry[3] = bsp_encoder_param[E2].distance;
+        // vofa_arry[0] = bsp_encoder_param[E1].speed;
+        // vofa_arry[1] = bsp_encoder_param[E2].speed;
+        // vofa_arry[2] = bsp_encoder_param[E1].distance;
+        // vofa_arry[3] = bsp_encoder_param[E2].distance;
 
+        vofa_arry[0] = Yaw_received;
+        vofa_arry[1] = coord;
+        vofa_arry[2] = last_coord;
 
-        VOFA_SendData(vofa_arry, 4);
+        VOFA_SendData(vofa_arry, 3);
     }
 }
 
@@ -82,6 +87,7 @@ void WR_TASK_PERIODIC_TICK_INST_IRQHandler(void)
     if( DL_Timer_getPendingInterrupt(WR_TASK_PERIODIC_TICK_INST) == DL_TIMER_IIDX_ZERO )
     {
 
+        Track_Task();
         BSP_KeyTask();
         Claculate_MotorSpeed();
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_center].key_longpressflag);
@@ -94,3 +100,5 @@ void WR_TASK_PERIODIC_TICK_INST_IRQHandler(void)
 
     DL_Timer_clearInterruptStatus(WR_TASK_PERIODIC_TICK_INST, DL_TIMER_IIDX_ZERO);
 }
+
+

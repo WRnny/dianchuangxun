@@ -144,6 +144,18 @@ extern "C" {
 #define Debug_UART_BAUD_RATE                                              (9600)
 #define Debug_UART_IBRD_40_MHZ_9600_BAUD                                   (260)
 #define Debug_UART_FBRD_40_MHZ_9600_BAUD                                    (27)
+/* Defines for Rx_yaw */
+#define Rx_yaw_INST                                                        UART1
+#define Rx_yaw_INST_FREQUENCY                                           40000000
+#define Rx_yaw_INST_IRQHandler                                  UART1_IRQHandler
+#define Rx_yaw_INST_INT_IRQN                                      UART1_INT_IRQn
+#define GPIO_Rx_yaw_RX_PORT                                                GPIOA
+#define GPIO_Rx_yaw_RX_PIN                                         DL_GPIO_PIN_9
+#define GPIO_Rx_yaw_IOMUX_RX                                     (IOMUX_PINCM20)
+#define GPIO_Rx_yaw_IOMUX_RX_FUNC                      IOMUX_PINCM20_PF_UART1_RX
+#define Rx_yaw_BAUD_RATE                                                (115200)
+#define Rx_yaw_IBRD_40_MHZ_115200_BAUD                                      (21)
+#define Rx_yaw_FBRD_40_MHZ_115200_BAUD                                      (45)
 
 
 
@@ -216,6 +228,30 @@ extern "C" {
 #define Encoder_E2_B_IIDX                                    (DL_GPIO_IIDX_DIO6)
 #define Encoder_E2_B_PIN                                         (DL_GPIO_PIN_6)
 #define Encoder_E2_B_IOMUX                                       (IOMUX_PINCM23)
+/* Port definition for Pin Group Track */
+#define Track_PORT                                                       (GPIOB)
+
+/* Defines for Track_1: GPIOB.4 with pinCMx 17 on package pin 52 */
+#define Track_Track_1_PIN                                        (DL_GPIO_PIN_4)
+#define Track_Track_1_IOMUX                                      (IOMUX_PINCM17)
+/* Defines for Track_2: GPIOB.12 with pinCMx 29 on package pin 64 */
+#define Track_Track_2_PIN                                       (DL_GPIO_PIN_12)
+#define Track_Track_2_IOMUX                                      (IOMUX_PINCM29)
+/* Defines for Track_3: GPIOB.17 with pinCMx 43 on package pin 14 */
+#define Track_Track_3_PIN                                       (DL_GPIO_PIN_17)
+#define Track_Track_3_IOMUX                                      (IOMUX_PINCM43)
+/* Defines for Track_4: GPIOB.5 with pinCMx 18 on package pin 53 */
+#define Track_Track_4_PIN                                        (DL_GPIO_PIN_5)
+#define Track_Track_4_IOMUX                                      (IOMUX_PINCM18)
+/* Defines for Track_5: GPIOB.13 with pinCMx 30 on package pin 1 */
+#define Track_Track_5_PIN                                       (DL_GPIO_PIN_13)
+#define Track_Track_5_IOMUX                                      (IOMUX_PINCM30)
+/* Defines for Track_6: GPIOB.19 with pinCMx 45 on package pin 16 */
+#define Track_Track_6_PIN                                       (DL_GPIO_PIN_19)
+#define Track_Track_6_IOMUX                                      (IOMUX_PINCM45)
+/* Defines for Track_7: GPIOB.21 with pinCMx 49 on package pin 20 */
+#define Track_Track_7_PIN                                       (DL_GPIO_PIN_21)
+#define Track_Track_7_IOMUX                                      (IOMUX_PINCM49)
 
 
 
@@ -230,6 +266,7 @@ void SYSCFG_DL_Motor_B_init(void);
 void SYSCFG_DL_Debug_Buzzer_init(void);
 void SYSCFG_DL_WR_TASK_PERIODIC_TICK_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
+void SYSCFG_DL_Rx_yaw_init(void);
 
 void SYSCFG_DL_SYSTICK_init(void);
 

@@ -449,6 +449,11 @@
               <FileType>1</FileType>
               <FilePath>..\bsp\Src\bsp_encouder.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_track.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\bsp\Src\bsp_track.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -3,8 +3,14 @@
 
 #include "ti_msp_dl_config.h"
 #include "stdio.h"
+#include "string.h"
+#include "stdlib.h"
+
+ #define UART_RX_BUF_SIZE 32
 
 extern uint8_t rx_data;
+
+extern float Yaw_received; // Yaw轴接收数据
 
 /**
  * @brief 串口初始化
