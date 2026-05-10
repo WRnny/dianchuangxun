@@ -120,6 +120,14 @@ extern "C" {
 
 
 
+/* Defines for WR_TASK_PERIODIC_TICK */
+#define WR_TASK_PERIODIC_TICK_INST                                      (TIMG12)
+#define WR_TASK_PERIODIC_TICK_INST_IRQHandler                       TIMG12_IRQHandler
+#define WR_TASK_PERIODIC_TICK_INST_INT_IRQN                       (TIMG12_INT_IRQn)
+#define WR_TASK_PERIODIC_TICK_INST_LOAD_VALUE                                (79999U)
+
+
+
 /* Defines for Debug_UART */
 #define Debug_UART_INST                                                    UART0
 #define Debug_UART_INST_FREQUENCY                                       40000000
@@ -182,6 +190,32 @@ extern "C" {
 /* Defines for BIN2: GPIOB.3 with pinCMx 16 on package pin 51 */
 #define Motor_DIR_BIN2_PIN                                       (DL_GPIO_PIN_3)
 #define Motor_DIR_BIN2_IOMUX                                     (IOMUX_PINCM16)
+/* Defines for E1_B: GPIOB.23 with pinCMx 51 on package pin 22 */
+#define Encoder_E1_B_PORT                                                (GPIOB)
+// pins affected by this interrupt request:["E1_B","E1_A","E2_B"]
+#define Encoder_GPIOB_INT_IRQN                                  (GPIOB_INT_IRQn)
+#define Encoder_GPIOB_INT_IIDX                  (DL_INTERRUPT_GROUP1_IIDX_GPIOB)
+#define Encoder_E1_B_IIDX                                   (DL_GPIO_IIDX_DIO23)
+#define Encoder_E1_B_PIN                                        (DL_GPIO_PIN_23)
+#define Encoder_E1_B_IOMUX                                       (IOMUX_PINCM51)
+/* Defines for E1_A: GPIOB.27 with pinCMx 58 on package pin 29 */
+#define Encoder_E1_A_PORT                                                (GPIOB)
+#define Encoder_E1_A_IIDX                                   (DL_GPIO_IIDX_DIO27)
+#define Encoder_E1_A_PIN                                        (DL_GPIO_PIN_27)
+#define Encoder_E1_A_IOMUX                                       (IOMUX_PINCM58)
+/* Defines for E2_A: GPIOA.12 with pinCMx 34 on package pin 5 */
+#define Encoder_E2_A_PORT                                                (GPIOA)
+// pins affected by this interrupt request:["E2_A"]
+#define Encoder_GPIOA_INT_IRQN                                  (GPIOA_INT_IRQn)
+#define Encoder_GPIOA_INT_IIDX                  (DL_INTERRUPT_GROUP1_IIDX_GPIOA)
+#define Encoder_E2_A_IIDX                                   (DL_GPIO_IIDX_DIO12)
+#define Encoder_E2_A_PIN                                        (DL_GPIO_PIN_12)
+#define Encoder_E2_A_IOMUX                                       (IOMUX_PINCM34)
+/* Defines for E2_B: GPIOB.6 with pinCMx 23 on package pin 58 */
+#define Encoder_E2_B_PORT                                                (GPIOB)
+#define Encoder_E2_B_IIDX                                    (DL_GPIO_IIDX_DIO6)
+#define Encoder_E2_B_PIN                                         (DL_GPIO_PIN_6)
+#define Encoder_E2_B_IOMUX                                       (IOMUX_PINCM23)
 
 
 
@@ -194,6 +228,7 @@ void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_Motor_A_init(void);
 void SYSCFG_DL_Motor_B_init(void);
 void SYSCFG_DL_Debug_Buzzer_init(void);
+void SYSCFG_DL_WR_TASK_PERIODIC_TICK_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
 
 void SYSCFG_DL_SYSTICK_init(void);

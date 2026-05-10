@@ -57,12 +57,14 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
     SYSCFG_DL_Motor_A_init();
     SYSCFG_DL_Motor_B_init();
     SYSCFG_DL_Debug_Buzzer_init();
+    SYSCFG_DL_WR_TASK_PERIODIC_TICK_init();
     SYSCFG_DL_Debug_UART_init();
     SYSCFG_DL_SYSTICK_init();
     /* Ensure backup structures have no valid state */
 	gMotor_ABackup.backupRdy 	= false;
 	gMotor_BBackup.backupRdy 	= false;
 	gDebug_BuzzerBackup.backupRdy 	= false;
+
 
 
 }
@@ -100,6 +102,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
     DL_TimerG_reset(Motor_A_INST);
     DL_TimerA_reset(Motor_B_INST);
     DL_TimerA_reset(Debug_Buzzer_INST);
+    DL_TimerG_reset(WR_TASK_PERIODIC_TICK_INST);
     DL_UART_Main_reset(Debug_UART_INST);
 
 
@@ -108,6 +111,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
     DL_TimerG_enablePower(Motor_A_INST);
     DL_TimerA_enablePower(Motor_B_INST);
     DL_TimerA_enablePower(Debug_Buzzer_INST);
+    DL_TimerG_enablePower(WR_TASK_PERIODIC_TICK_INST);
     DL_UART_Main_enablePower(Debug_UART_INST);
 
     delay_cycles(POWER_STARTUP_DELAY);
@@ -163,6 +167,25 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 
     DL_GPIO_initDigitalOutput(Motor_DIR_BIN2_IOMUX);
 
+    DL_GPIO_initDigitalInputFeatures(Encoder_E1_B_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(Encoder_E1_A_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(Encoder_E2_A_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(Encoder_E2_B_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_setLowerPinsPolarity(GPIOA, DL_GPIO_PIN_12_EDGE_RISE);
+    DL_GPIO_clearInterruptStatus(GPIOA, Encoder_E2_A_PIN);
+    DL_GPIO_enableInterrupt(GPIOA, Encoder_E2_A_PIN);
     DL_GPIO_clearPins(GPIOB, Debug_led_Debug_led1_PIN);
     DL_GPIO_setPins(GPIOB, Motor_DIR_AIN2_PIN |
 		Motor_DIR_AIN1_PIN |
@@ -173,6 +196,15 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		Motor_DIR_AIN1_PIN |
 		Motor_DIR_BIN1_PIN |
 		Motor_DIR_BIN2_PIN);
+    DL_GPIO_setLowerPinsPolarity(GPIOB, DL_GPIO_PIN_6_EDGE_RISE);
+    DL_GPIO_setUpperPinsPolarity(GPIOB, DL_GPIO_PIN_23_EDGE_RISE |
+		DL_GPIO_PIN_27_EDGE_RISE);
+    DL_GPIO_clearInterruptStatus(GPIOB, Encoder_E1_B_PIN |
+		Encoder_E1_A_PIN |
+		Encoder_E2_B_PIN);
+    DL_GPIO_enableInterrupt(GPIOB, Encoder_E1_B_PIN |
+		Encoder_E1_A_PIN |
+		Encoder_E2_B_PIN);
 
 }
 
@@ -206,6 +238,8 @@ SYSCONFIG_WEAK void SYSCFG_DL_SYSCTL_init(void)
     DL_SYSCTL_configSYSPLL((DL_SYSCTL_SYSPLLConfig *) &gSYSPLLConfig);
     DL_SYSCTL_setULPCLKDivider(DL_SYSCTL_ULPCLK_DIV_2);
     DL_SYSCTL_setMCLKSource(SYSOSC, HSCLK, DL_SYSCTL_HSCLK_SOURCE_SYSPLL);
+    /* INT_GROUP1 Priority */
+    NVIC_SetPriority(GPIOB_INT_IRQn, 0);
 
 }
 
@@ -339,6 +373,46 @@ SYSCONFIG_WEAK void SYSCFG_DL_Debug_Buzzer_init(void) {
 
     
     DL_TimerA_setCCPDirection(Debug_Buzzer_INST , DL_TIMER_CC0_OUTPUT );
+
+
+}
+
+
+
+/*
+ * Timer clock configuration to be sourced by BUSCLK /  (80000000 Hz)
+ * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
+ *   80000000 Hz = 80000000 Hz / (1 * (0 + 1))
+ */
+static const DL_TimerG_ClockConfig gWR_TASK_PERIODIC_TICKClockConfig = {
+    .clockSel    = DL_TIMER_CLOCK_BUSCLK,
+    .divideRatio = DL_TIMER_CLOCK_DIVIDE_1,
+    .prescale    = 0U,
+};
+
+/*
+ * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
+ * WR_TASK_PERIODIC_TICK_INST_LOAD_VALUE = (1ms * 80000000 Hz) - 1
+ */
+static const DL_TimerG_TimerConfig gWR_TASK_PERIODIC_TICKTimerConfig = {
+    .period     = WR_TASK_PERIODIC_TICK_INST_LOAD_VALUE,
+    .timerMode  = DL_TIMER_TIMER_MODE_PERIODIC,
+    .startTimer = DL_TIMER_START,
+};
+
+SYSCONFIG_WEAK void SYSCFG_DL_WR_TASK_PERIODIC_TICK_init(void) {
+
+    DL_TimerG_setClockConfig(WR_TASK_PERIODIC_TICK_INST,
+        (DL_TimerG_ClockConfig *) &gWR_TASK_PERIODIC_TICKClockConfig);
+
+    DL_TimerG_initTimerMode(WR_TASK_PERIODIC_TICK_INST,
+        (DL_TimerG_TimerConfig *) &gWR_TASK_PERIODIC_TICKTimerConfig);
+    DL_TimerG_enableInterrupt(WR_TASK_PERIODIC_TICK_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
+	NVIC_SetPriority(WR_TASK_PERIODIC_TICK_INST_INT_IRQN, 0);
+    DL_TimerG_enableClock(WR_TASK_PERIODIC_TICK_INST);
+
+
+
 
 
 }

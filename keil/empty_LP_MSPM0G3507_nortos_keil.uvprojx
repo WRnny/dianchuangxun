@@ -444,6 +444,11 @@
               <FileType>1</FileType>
               <FilePath>..\bsp\Src\bsp_buzzer.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_encouder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\bsp\Src\bsp_encouder.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -36,6 +36,9 @@
 #include "bsp_uart.h"
 #include "bsp_motor.h"
 #include "bsp_buzzer.h"
+#include "bsp_encoder.h"
+
+float vofa_arry[20];
 
 void LED_Test(void)
 {
@@ -52,25 +55,42 @@ int main(void)
     SYSCFG_DL_init();
     BspUART_Init();
     BspMotor_Init();
+    BspEncoder_Init();
+
+    NVIC_ClearPendingIRQ(WR_TASK_PERIODIC_TICK_INST_INT_IRQN);
+	NVIC_EnableIRQ(WR_TASK_PERIODIC_TICK_INST_INT_IRQN);
 
     while (1) 
     {
-        
         BspMotor_SetSpeed(BSP_MOTOR_A, 0);
         BspMotor_SetSpeed(BSP_MOTOR_B, 0);
 
+        // 不能用printf会卡死
+        // printf("%f, %f\r\n", (float)bsp_encoder_param[E1].count, (float)bsp_encoder_param[E2].count);
+        vofa_arry[0] = bsp_encoder_param[E1].speed;
+        vofa_arry[1] = bsp_encoder_param[E2].speed;
+        vofa_arry[2] = bsp_encoder_param[E1].distance;
+        vofa_arry[3] = bsp_encoder_param[E2].distance;
+
+
+        VOFA_SendData(vofa_arry, 4);
+    }
+}
+
+void WR_TASK_PERIODIC_TICK_INST_IRQHandler(void)
+{
+    if( DL_Timer_getPendingInterrupt(WR_TASK_PERIODIC_TICK_INST) == DL_TIMER_IIDX_ZERO )
+    {
+
         BSP_KeyTask();
-        NULL_Test();
+        Claculate_MotorSpeed();
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_center].key_longpressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_right].key_releaseflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_left].key_pressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_up].key_longpressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_down].key_releaseflag);
 
-        printf("Hello World!\r\n");
-
-       
-        
     }
-}
 
+    DL_Timer_clearInterruptStatus(WR_TASK_PERIODIC_TICK_INST, DL_TIMER_IIDX_ZERO);
+}

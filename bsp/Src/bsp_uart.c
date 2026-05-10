@@ -23,6 +23,47 @@ int fputc(int ch, FILE *f) {
 
 uint8_t rx_data;
 
+
+/**
+ * @brief 串口发送一字节数据
+ * 
+ * @param Byte 发送数据
+ */
+void Serial_SendByte(uint8_t Byte)
+{
+	DL_UART_transmitDataBlocking(Debug_UART_INST, Byte);
+}
+
+/**
+ * @brief 串口发送VOFA数据
+ * 
+ * @param data 发送的数据
+ * @param count 发送多少数据
+ */
+void VOFA_SendData(float* data, int count)
+{
+    // 发送数据	
+	for(int i = 0; i < count; i++)
+	{
+		unsigned char *bytes = (unsigned char *)&data[i];
+		for(int j = 0; j < 4; j++)
+		{
+			Serial_SendByte(bytes[j]);	
+		}
+	}
+	
+	//发送帧尾
+	unsigned char tail[4] = {0x00, 0x00, 0x80, 0x7f};
+	for(int i = 0; i < 4; i++)
+	{
+		Serial_SendByte(tail[i]);
+	}
+}
+
+/**
+ * @brief 串口初始化
+ * 
+ */
 void BspUART_Init(void)
 {
     // 清除中断标志位
