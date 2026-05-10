@@ -51,7 +51,6 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
     /* Module-Specific Initializations*/
     SYSCFG_DL_SYSCTL_init();
     SYSCFG_DL_Debug_UART_init();
-    SYSCFG_DL_DMA_init();
     SYSCFG_DL_SYSTICK_init();
 }
 
@@ -64,11 +63,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
     DL_UART_Main_reset(Debug_UART_INST);
 
 
-
     DL_GPIO_enablePower(GPIOA);
     DL_GPIO_enablePower(GPIOB);
     DL_UART_Main_enablePower(Debug_UART_INST);
-
 
     delay_cycles(POWER_STARTUP_DELAY);
 }
@@ -162,38 +159,11 @@ SYSCONFIG_WEAK void SYSCFG_DL_Debug_UART_init(void)
 
     /* Configure Interrupts */
     DL_UART_Main_enableInterrupt(Debug_UART_INST,
-                                 DL_UART_MAIN_INTERRUPT_DMA_DONE_RX);
+                                 DL_UART_MAIN_INTERRUPT_RX);
 
-    /* Configure DMA Receive Event */
-    DL_UART_Main_enableDMAReceiveEvent(Debug_UART_INST, DL_UART_DMA_INTERRUPT_RX);
-    /* Configure FIFOs */
-    DL_UART_Main_enableFIFOs(Debug_UART_INST);
-    DL_UART_Main_setRXFIFOThreshold(Debug_UART_INST, DL_UART_RX_FIFO_LEVEL_3_4_FULL);
-    DL_UART_Main_setTXFIFOThreshold(Debug_UART_INST, DL_UART_TX_FIFO_LEVEL_1_2_EMPTY);
 
     DL_UART_Main_enable(Debug_UART_INST);
 }
-
-static const DL_DMA_Config gDebug_DMAConfig = {
-    .transferMode   = DL_DMA_FULL_CH_REPEAT_SINGLE_TRANSFER_MODE,
-    .extendedMode   = DL_DMA_NORMAL_MODE,
-    .destIncrement  = DL_DMA_ADDR_INCREMENT,
-    .srcIncrement   = DL_DMA_ADDR_UNCHANGED,
-    .destWidth      = DL_DMA_WIDTH_BYTE,
-    .srcWidth       = DL_DMA_WIDTH_BYTE,
-    .trigger        = Debug_UART_INST_DMA_TRIGGER,
-    .triggerType    = DL_DMA_TRIGGER_TYPE_EXTERNAL,
-};
-
-SYSCONFIG_WEAK void SYSCFG_DL_Debug_DMA_init(void)
-{
-    DL_DMA_setTransferSize(DMA, Debug_DMA_CHAN_ID, 256);
-    DL_DMA_initChannel(DMA, Debug_DMA_CHAN_ID , (DL_DMA_Config *) &gDebug_DMAConfig);
-}
-SYSCONFIG_WEAK void SYSCFG_DL_DMA_init(void){
-    SYSCFG_DL_Debug_DMA_init();
-}
-
 
 SYSCONFIG_WEAK void SYSCFG_DL_SYSTICK_init(void)
 {

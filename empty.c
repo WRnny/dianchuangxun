@@ -40,21 +40,23 @@ void LED_Test(void)
     DL_GPIO_togglePins(Debug_led_PORT, Debug_led_Debug_led1_PIN);
 }
 
+void printf_Test(void)
+{
+    WR_TASK_PERIODIC(printf_test_task, 50);
+
+    printf("Hello World!\r\n");
+}
 int main(void)
 {
     SYSCFG_DL_init();
-    BspDMA_Init();
+    BspUART_Init();
 
     while (1) 
     {
-        if(dma_rx_buffer[0] == '1')
-        {
-            DL_GPIO_togglePins(Debug_led_PORT, Debug_led_Debug_led1_PIN);
-            dma_rx_buffer[0] = 0;
-        }
         BSP_KeyTask();
+        printf_Test();
         WR_KeyControlTask(LED_Test, &bsp_key_param[0].key_longpressflag);
-        printf("Hello World!\r\n");
+        
     }
 }
 

@@ -1,7 +1,7 @@
 Dependencies for Project 'empty_LP_MSPM0G3507_nortos_keil', Target 'empty_LP_MSPM0G3507_nortos_keil': (DO NOT MODIFY !)
 CompilerVersion: 6240000::V6.24::ARMCLANG
-F (../empty.c)(0x69FF2280)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/empty.o -MMD)
-I (..\ti_msp_dl_config.h)(0x69FF22E2)
+F (../empty.c)(0x6A003726)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/empty.o -MMD)
+I (..\ti_msp_dl_config.h)(0x6A003463)
 I (..\..\source\ti\devices\msp\msp.h)(0x67C10125)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x67C10125)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x67C10125)
@@ -69,7 +69,7 @@ I (..\..\source\ti\driverlib\dl_timer.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_timerg.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_trng.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_uart_extend.h)(0x67C10125)
-I (..\..\source\ti\driverlib\dl_uart.h)(0x67C10125)
+I (..\..\source\ti\driverlib\dl_uart.h)(0x6A0036D7)
 I (..\..\source\ti\driverlib\dl_uart_main.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_vref.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x67C10125)
@@ -77,12 +77,12 @@ I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x67C10125)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x67C10125)
 I (..\User\Inc\my_Ticks.h)(0x69FDDDF8)
 I (..\bsp\Inc\bsp_key.h)(0x69FE1B66)
-I (..\bsp\Inc\bsp_uart.h)(0x69FF2275)
-F (../empty.syscfg)(0x69FF22E2)()
+I (..\bsp\Inc\bsp_uart.h)(0x6A003642)
+F (../empty.syscfg)(0x6A003463)()
 F (startup_mspm0g350x_uvision.s)(0x67C10126)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__MICROLIB SETA 1"-Wa,armasm,--pd,"__UVISION_VERSION SETA 543" -Wa,armasm,--pd,"__MSPM0G3507__ SETA 1"-o ./objects/startup_mspm0g350x_uvision.o)
-F (../ti_msp_dl_config.h)(0x69FF22E2)()
-F (../ti_msp_dl_config.c)(0x69FF22E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/ti_msp_dl_config.o -MMD)
-I (..\ti_msp_dl_config.h)(0x69FF22E2)
+F (../ti_msp_dl_config.h)(0x6A003463)()
+F (../ti_msp_dl_config.c)(0x6A003463)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/ti_msp_dl_config.o -MMD)
+I (..\ti_msp_dl_config.h)(0x6A003463)
 I (..\..\source\ti\devices\msp\msp.h)(0x67C10125)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x67C10125)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x67C10125)
@@ -150,7 +150,7 @@ I (..\..\source\ti\driverlib\dl_timer.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_timerg.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_trng.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_uart_extend.h)(0x67C10125)
-I (..\..\source\ti\driverlib\dl_uart.h)(0x67C10125)
+I (..\..\source\ti\driverlib\dl_uart.h)(0x6A0036D7)
 I (..\..\source\ti\driverlib\dl_uart_main.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_vref.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x67C10125)
@@ -158,7 +158,7 @@ I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x67C10125)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x67C10125)
 F (..\User\Src\my_Ticks.c)(0x69FEE3EF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/my_ticks.o -MMD)
 I (..\User\Inc\my_Ticks.h)(0x69FDDDF8)
-I (..\ti_msp_dl_config.h)(0x69FF22E2)
+I (..\ti_msp_dl_config.h)(0x6A003463)
 I (..\..\source\ti\devices\msp\msp.h)(0x67C10125)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x67C10125)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x67C10125)
@@ -226,15 +226,15 @@ I (..\..\source\ti\driverlib\dl_timer.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_timerg.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_trng.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_uart_extend.h)(0x67C10125)
-I (..\..\source\ti\driverlib\dl_uart.h)(0x67C10125)
+I (..\..\source\ti\driverlib\dl_uart.h)(0x6A0036D7)
 I (..\..\source\ti\driverlib\dl_uart_main.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_vref.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x67C10125)
 I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x67C10125)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x67C10125)
-F (..\bsp\Src\bsp_key.c)(0x69FE42A6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/bsp_key.o -MMD)
+F (..\bsp\Src\bsp_key.c)(0x6A0020FD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/bsp_key.o -MMD)
 I (..\bsp\Inc\bsp_key.h)(0x69FE1B66)
-I (..\ti_msp_dl_config.h)(0x69FF22E2)
+I (..\ti_msp_dl_config.h)(0x6A003463)
 I (..\..\source\ti\devices\msp\msp.h)(0x67C10125)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x67C10125)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x67C10125)
@@ -302,16 +302,16 @@ I (..\..\source\ti\driverlib\dl_timer.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_timerg.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_trng.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_uart_extend.h)(0x67C10125)
-I (..\..\source\ti\driverlib\dl_uart.h)(0x67C10125)
+I (..\..\source\ti\driverlib\dl_uart.h)(0x6A0036D7)
 I (..\..\source\ti\driverlib\dl_uart_main.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_vref.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x67C10125)
 I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x67C10125)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x67C10125)
 I (..\User\Inc\my_Ticks.h)(0x69FDDDF8)
-F (..\bsp\Src\bsp_uart.c)(0x69FF21C0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/bsp_uart.o -MMD)
-I (..\bsp\Inc\bsp_uart.h)(0x69FF2275)
-I (..\ti_msp_dl_config.h)(0x69FF22E2)
+F (..\bsp\Src\bsp_uart.c)(0x6A003704)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../User/Inc -I ../ -I ../bsp/Inc -I ../bsp/Inc-D__UVISION_VERSION="543" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/bsp_uart.o -MMD)
+I (..\bsp\Inc\bsp_uart.h)(0x6A003642)
+I (..\ti_msp_dl_config.h)(0x6A003463)
 I (..\..\source\ti\devices\msp\msp.h)(0x67C10125)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x67C10125)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x67C10125)
@@ -379,7 +379,7 @@ I (..\..\source\ti\driverlib\dl_timer.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_timerg.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_trng.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_uart_extend.h)(0x67C10125)
-I (..\..\source\ti\driverlib\dl_uart.h)(0x67C10125)
+I (..\..\source\ti\driverlib\dl_uart.h)(0x6A0036D7)
 I (..\..\source\ti\driverlib\dl_uart_main.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_vref.h)(0x67C10125)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x67C10125)

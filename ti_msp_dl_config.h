@@ -89,11 +89,11 @@ extern "C" {
 #define Debug_UART_INST_INT_IRQN                                  UART0_INT_IRQn
 #define GPIO_Debug_UART_RX_PORT                                            GPIOA
 #define GPIO_Debug_UART_TX_PORT                                            GPIOA
-#define GPIO_Debug_UART_RX_PIN                                     DL_GPIO_PIN_1
+#define GPIO_Debug_UART_RX_PIN                                    DL_GPIO_PIN_11
 #define GPIO_Debug_UART_TX_PIN                                    DL_GPIO_PIN_10
-#define GPIO_Debug_UART_IOMUX_RX                                  (IOMUX_PINCM2)
+#define GPIO_Debug_UART_IOMUX_RX                                 (IOMUX_PINCM22)
 #define GPIO_Debug_UART_IOMUX_TX                                 (IOMUX_PINCM21)
-#define GPIO_Debug_UART_IOMUX_RX_FUNC                   IOMUX_PINCM2_PF_UART0_RX
+#define GPIO_Debug_UART_IOMUX_RX_FUNC                  IOMUX_PINCM22_PF_UART0_RX
 #define GPIO_Debug_UART_IOMUX_TX_FUNC                  IOMUX_PINCM21_PF_UART0_TX
 #define Debug_UART_BAUD_RATE                                              (9600)
 #define Debug_UART_IBRD_40_MHZ_9600_BAUD                                   (260)
@@ -101,11 +101,6 @@ extern "C" {
 
 
 
-
-
-/* Defines for Debug_DMA */
-#define Debug_DMA_CHAN_ID                                                    (0)
-#define Debug_UART_INST_DMA_TRIGGER                          (DMA_UART0_RX_TRIG)
 
 
 /* Port definition for Pin Group Debug_led */
@@ -130,7 +125,6 @@ void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
-void SYSCFG_DL_DMA_init(void);
 
 void SYSCFG_DL_SYSTICK_init(void);
 

@@ -21,4 +21,26 @@ int fputc(int ch, FILE *f) {
 }
 #endif
 
+uint8_t rx_data;
 
+void BspUART_Init(void)
+{
+    // 清除中断标志位
+    NVIC_ClearPendingIRQ(Debug_UART_INST_INT_IRQN);
+
+    // 开启接收中断
+    NVIC_EnableIRQ(Debug_UART_INST_INT_IRQN);
+}
+
+void Debug_UART_INST_IRQHandler(void)
+{
+
+    switch(DL_UART_getPendingInterrupt(Debug_UART_INST))
+    {
+        case DL_UART_IIDX_RX:
+            rx_data = DL_UART_Main_receiveData(Debug_UART_INST);
+            break;
+        default:
+            break;
+    }
+}
