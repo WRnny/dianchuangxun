@@ -439,6 +439,11 @@
               <FileType>1</FileType>
               <FilePath>..\bsp\Src\bsp_motor.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\bsp\Src\bsp_buzzer.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

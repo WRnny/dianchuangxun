@@ -106,6 +106,18 @@ extern "C" {
 #define GPIO_Motor_B_C1_IOMUX_FUNC                   IOMUX_PINCM38_PF_TIMA1_CCP1
 #define GPIO_Motor_B_C1_IDX                                  DL_TIMER_CC_1_INDEX
 
+/* Defines for Debug_Buzzer */
+#define Debug_Buzzer_INST                                                  TIMA0
+#define Debug_Buzzer_INST_IRQHandler                            TIMA0_IRQHandler
+#define Debug_Buzzer_INST_INT_IRQN                              (TIMA0_INT_IRQn)
+#define Debug_Buzzer_INST_CLK_FREQ                                      80000000
+/* GPIO defines for channel 0 */
+#define GPIO_Debug_Buzzer_C0_PORT                                          GPIOA
+#define GPIO_Debug_Buzzer_C0_PIN                                  DL_GPIO_PIN_21
+#define GPIO_Debug_Buzzer_C0_IOMUX                               (IOMUX_PINCM46)
+#define GPIO_Debug_Buzzer_C0_IOMUX_FUNC              IOMUX_PINCM46_PF_TIMA0_CCP0
+#define GPIO_Debug_Buzzer_C0_IDX                             DL_TIMER_CC_0_INDEX
+
 
 
 /* Defines for Debug_UART */
@@ -181,6 +193,7 @@ void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_Motor_A_init(void);
 void SYSCFG_DL_Motor_B_init(void);
+void SYSCFG_DL_Debug_Buzzer_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
 
 void SYSCFG_DL_SYSTICK_init(void);

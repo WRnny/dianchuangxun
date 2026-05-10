@@ -1,5 +1,5 @@
-./objects/empty.o: ..\empty.c ..\ti_msp_dl_config.h \
-  ..\..\source\ti\devices\msp\msp.h \
+./objects/bsp_buzzer.o: ..\bsp\Src\bsp_buzzer.c ..\bsp\Inc\bsp_buzzer.h \
+  ..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
   ..\..\source\third_party\CMSIS\Core\Include\core_cm0plus.h \
@@ -68,6 +68,4 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\User\Inc\my_Ticks.h \
-  ..\bsp\Inc\bsp_key.h ..\bsp\Inc\bsp_uart.h ..\bsp\Inc\bsp_motor.h \
-  ..\bsp\Inc\bsp_buzzer.h
+  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\User\Inc\my_Ticks.h

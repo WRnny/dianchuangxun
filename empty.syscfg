@@ -16,6 +16,7 @@ const GPIO3   = GPIO.addInstance();
 const PWM     = scripting.addModule("/ti/driverlib/PWM", {}, false);
 const PWM1    = PWM.addInstance();
 const PWM2    = PWM.addInstance();
+const PWM3    = PWM.addInstance();
 const SYSCTL  = scripting.addModule("/ti/driverlib/SYSCTL");
 const SYSTICK = scripting.addModule("/ti/driverlib/SYSTICK");
 const UART    = scripting.addModule("/ti/driverlib/UART", {}, false);
@@ -148,6 +149,16 @@ PWM2.peripheral.$assign                 = "TIMA1";
 PWM2.peripheral.ccp1Pin.$assign         = "PA16";
 PWM2.PWM_CHANNEL_1.$name                = "ti_driverlib_pwm_PWMTimerCC1";
 PWM2.PWM_CHANNEL_1.invert               = true;
+
+PWM3.$name                      = "Debug_Buzzer";
+PWM3.ccIndex                    = [0];
+PWM3.timerStartTimer            = true;
+PWM3.timerCount                 = 65535;
+PWM3.peripheral.$assign         = "TIMA0";
+PWM3.peripheral.ccp0Pin.$assign = "PA21";
+PWM3.PWM_CHANNEL_0.$name        = "ti_driverlib_pwm_PWMTimerCC2";
+PWM3.PWM_CHANNEL_0.invert       = true;
+PWM3.ccp0PinConfig.$name        = "ti_driverlib_gpio_GPIOPinGeneric4";
 
 SYSCTL.forceDefaultClkConfig = true;
 SYSCTL.clockTreeEn           = true;

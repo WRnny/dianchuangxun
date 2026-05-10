@@ -35,6 +35,7 @@
 #include "bsp_key.h"
 #include "bsp_uart.h"
 #include "bsp_motor.h"
+#include "bsp_buzzer.h"
 
 void LED_Test(void)
 {
@@ -54,6 +55,7 @@ int main(void)
 
     while (1) 
     {
+        
         BspMotor_SetSpeed(BSP_MOTOR_A, 0);
         BspMotor_SetSpeed(BSP_MOTOR_B, 0);
 
