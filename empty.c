@@ -34,28 +34,35 @@
 #include "my_Ticks.h"
 #include "bsp_key.h"
 #include "bsp_uart.h"
+#include "bsp_motor.h"
 
 void LED_Test(void)
 {
     DL_GPIO_togglePins(Debug_led_PORT, Debug_led_Debug_led1_PIN);
 }
 
-void printf_Test(void)
+void NULL_Test(void)
 {
-    WR_TASK_PERIODIC(printf_test_task, 50);
-
-    printf("Hello World!\r\n");
+    WR_TASK_PERIODIC(NULL_test_task, 10);
 }
+
 int main(void)
 {
     SYSCFG_DL_init();
     BspUART_Init();
+    BspMotor_Init();
 
     while (1) 
     {
+        BspMotor_SetSpeed(BSP_MOTOR_A, 0);
+        BspMotor_SetSpeed(BSP_MOTOR_B, 0);
+
         BSP_KeyTask();
-        printf_Test();
+        NULL_Test();
         WR_KeyControlTask(LED_Test, &bsp_key_param[0].key_longpressflag);
+        printf("Hello World!\r\n");
+
+       
         
     }
 }

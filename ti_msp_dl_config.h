@@ -82,6 +82,32 @@ extern "C" {
 
 
 
+/* Defines for Motor_A */
+#define Motor_A_INST                                                       TIMG7
+#define Motor_A_INST_IRQHandler                                 TIMG7_IRQHandler
+#define Motor_A_INST_INT_IRQN                                   (TIMG7_INT_IRQn)
+#define Motor_A_INST_CLK_FREQ                                           80000000
+/* GPIO defines for channel 1 */
+#define GPIO_Motor_A_C1_PORT                                               GPIOA
+#define GPIO_Motor_A_C1_PIN                                        DL_GPIO_PIN_2
+#define GPIO_Motor_A_C1_IOMUX                                     (IOMUX_PINCM7)
+#define GPIO_Motor_A_C1_IOMUX_FUNC                    IOMUX_PINCM7_PF_TIMG7_CCP1
+#define GPIO_Motor_A_C1_IDX                                  DL_TIMER_CC_1_INDEX
+
+/* Defines for Motor_B */
+#define Motor_B_INST                                                       TIMA1
+#define Motor_B_INST_IRQHandler                                 TIMA1_IRQHandler
+#define Motor_B_INST_INT_IRQN                                   (TIMA1_INT_IRQn)
+#define Motor_B_INST_CLK_FREQ                                           80000000
+/* GPIO defines for channel 1 */
+#define GPIO_Motor_B_C1_PORT                                               GPIOA
+#define GPIO_Motor_B_C1_PIN                                       DL_GPIO_PIN_16
+#define GPIO_Motor_B_C1_IOMUX                                    (IOMUX_PINCM38)
+#define GPIO_Motor_B_C1_IOMUX_FUNC                   IOMUX_PINCM38_PF_TIMA1_CCP1
+#define GPIO_Motor_B_C1_IDX                                  DL_TIMER_CC_1_INDEX
+
+
+
 /* Defines for Debug_UART */
 #define Debug_UART_INST                                                    UART0
 #define Debug_UART_INST_FREQUENCY                                       40000000
@@ -115,6 +141,21 @@ extern "C" {
 /* Defines for Board_Key: GPIOB.21 with pinCMx 49 on package pin 20 */
 #define Debug_key_Board_Key_PIN                                 (DL_GPIO_PIN_21)
 #define Debug_key_Board_Key_IOMUX                                (IOMUX_PINCM49)
+/* Port definition for Pin Group Motor_DIR */
+#define Motor_DIR_PORT                                                   (GPIOB)
+
+/* Defines for AIN2: GPIOB.15 with pinCMx 32 on package pin 3 */
+#define Motor_DIR_AIN2_PIN                                      (DL_GPIO_PIN_15)
+#define Motor_DIR_AIN2_IOMUX                                     (IOMUX_PINCM32)
+/* Defines for AIN1: GPIOB.16 with pinCMx 33 on package pin 4 */
+#define Motor_DIR_AIN1_PIN                                      (DL_GPIO_PIN_16)
+#define Motor_DIR_AIN1_IOMUX                                     (IOMUX_PINCM33)
+/* Defines for BIN1: GPIOB.2 with pinCMx 15 on package pin 50 */
+#define Motor_DIR_BIN1_PIN                                       (DL_GPIO_PIN_2)
+#define Motor_DIR_BIN1_IOMUX                                     (IOMUX_PINCM15)
+/* Defines for BIN2: GPIOB.3 with pinCMx 16 on package pin 51 */
+#define Motor_DIR_BIN2_PIN                                       (DL_GPIO_PIN_3)
+#define Motor_DIR_BIN2_IOMUX                                     (IOMUX_PINCM16)
 
 
 
@@ -124,6 +165,8 @@ void SYSCFG_DL_init(void);
 void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
+void SYSCFG_DL_Motor_A_init(void);
+void SYSCFG_DL_Motor_B_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
 
 void SYSCFG_DL_SYSTICK_init(void);
