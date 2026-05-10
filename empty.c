@@ -59,7 +59,12 @@ int main(void)
 
         BSP_KeyTask();
         NULL_Test();
-        WR_KeyControlTask(LED_Test, &bsp_key_param[0].key_longpressflag);
+        WR_KeyControlTask(LED_Test, &bsp_key_param[Key_center].key_longpressflag);
+        WR_KeyControlTask(LED_Test, &bsp_key_param[Key_right].key_releaseflag);
+        WR_KeyControlTask(LED_Test, &bsp_key_param[Key_left].key_pressflag);
+        WR_KeyControlTask(LED_Test, &bsp_key_param[Key_up].key_longpressflag);
+        WR_KeyControlTask(LED_Test, &bsp_key_param[Key_down].key_releaseflag);
+
         printf("Hello World!\r\n");
 
        

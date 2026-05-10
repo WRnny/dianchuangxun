@@ -800,90 +800,90 @@ Image Symbol Table
     __arm_cp.6_0                             0x00001230   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Debug_UART_init)
     __arm_cp.6_2                             0x00001234   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Debug_UART_init)
     [Anonymous Symbol]                       0x00001238   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_2                             0x000012e0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_3                             0x000012e4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    [Anonymous Symbol]                       0x000012e8   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
-    __arm_cp.4_0                             0x00001348   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
-    __arm_cp.4_2                             0x0000134c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
-    [Anonymous Symbol]                       0x00001350   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
-    __arm_cp.5_0                             0x000013b0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
-    __arm_cp.5_2                             0x000013b4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
-    __arm_cp.5_3                             0x000013b8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
-    [Anonymous Symbol]                       0x000013bc   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
-    __arm_cp.3_0                             0x00001404   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
-    [Anonymous Symbol]                       0x00001408   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    __arm_cp.7_0                             0x00001414   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    [Anonymous Symbol]                       0x00001418   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    __arm_cp.0_0                             0x00001448   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    __arm_cp.0_1                             0x0000144c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    [Anonymous Symbol]                       0x00001450   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_0                             0x000014a4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_1                             0x000014a8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_2                             0x000014ac   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_3                             0x000014b0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    SysTick_Config                           0x000014b5   Thumb Code    68  ti_msp_dl_config.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x000014b4   Section        0  ti_msp_dl_config.o(.text.SysTick_Config)
-    __arm_cp.38_0                            0x000014f8   Number         4  ti_msp_dl_config.o(.text.SysTick_Config)
-    __arm_cp.38_1                            0x000014fc   Number         4  ti_msp_dl_config.o(.text.SysTick_Config)
-    __arm_cp.38_2                            0x00001500   Number         4  ti_msp_dl_config.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x00001504   Section        0  my_ticks.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x0000150c   Section        0  bsp_uart.o(.text.UART0_IRQHandler)
-    __arm_cp.6_0                             0x0000152c   Number         4  bsp_uart.o(.text.UART0_IRQHandler)
-    __arm_cp.6_1                             0x00001530   Number         4  bsp_uart.o(.text.UART0_IRQHandler)
-    [Anonymous Symbol]                       0x00001534   Section        0  my_ticks.o(.text.WR_GetTick)
-    [Anonymous Symbol]                       0x0000153c   Section        0  my_ticks.o(.text.WR_IncTik)
-    __arm_cp.0_0                             0x00001548   Number         4  my_ticks.o(.text.WR_IncTik)
-    [Anonymous Symbol]                       0x0000154c   Section        0  bsp_key.o(.text.WR_KeyControlTask)
-    __NVIC_ClearPendingIRQ                   0x0000157d   Thumb Code    40  bsp_uart.o(.text.__NVIC_ClearPendingIRQ)
-    [Anonymous Symbol]                       0x0000157c   Section        0  bsp_uart.o(.text.__NVIC_ClearPendingIRQ)
-    __arm_cp.4_0                             0x000015a4   Number         4  bsp_uart.o(.text.__NVIC_ClearPendingIRQ)
-    __NVIC_EnableIRQ                         0x000015a9   Thumb Code    40  bsp_uart.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x000015a8   Section        0  bsp_uart.o(.text.__NVIC_EnableIRQ)
-    __arm_cp.5_0                             0x000015d0   Number         4  bsp_uart.o(.text.__NVIC_EnableIRQ)
-    __NVIC_SetPriority                       0x000015d5   Thumb Code   124  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x000015d4   Section        0  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
-    __arm_cp.40_0                            0x00001650   Number         4  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
-    __arm_cp.40_1                            0x00001654   Number         4  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x00001658   Section        0  bsp_uart.o(.text.fputc)
-    __arm_cp.0_0                             0x00001680   Number         4  bsp_uart.o(.text.fputc)
-    [Anonymous Symbol]                       0x00001684   Section        0  empty.o(.text.main)
-    __arm_cp.3_0                             0x000016c8   Number         4  empty.o(.text.main)
-    __arm_cp.3_1                             0x000016cc   Number         4  empty.o(.text.main)
-    __arm_cp.3_2                             0x000016d0   Number         4  empty.o(.text.main)
-    i.__0printf                              0x000016d4   Section        0  printfa.o(i.__0printf)
-    i.__ARM_clz                              0x000016f4   Section        0  depilogue.o(i.__ARM_clz)
-    i.__scatterload_copy                     0x00001728   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00001738   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001740   Section       14  handlers.o(i.__scatterload_zeroinit)
-    _fp_digits                               0x00001751   Thumb Code   344  printfa.o(i._fp_digits)
-    i._fp_digits                             0x00001750   Section        0  printfa.o(i._fp_digits)
-    _printf_core                             0x000018c5   Thumb Code  1754  printfa.o(i._printf_core)
-    i._printf_core                           0x000018c4   Section        0  printfa.o(i._printf_core)
-    _printf_post_padding                     0x00001fb1   Thumb Code    32  printfa.o(i._printf_post_padding)
-    i._printf_post_padding                   0x00001fb0   Section        0  printfa.o(i._printf_post_padding)
-    _printf_pre_padding                      0x00001fd1   Thumb Code    44  printfa.o(i._printf_pre_padding)
-    i._printf_pre_padding                    0x00001fd0   Section        0  printfa.o(i._printf_pre_padding)
-    gDebug_UARTClockConfig                   0x00001ffc   Data           2  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
-    [Anonymous Symbol]                       0x00001ffc   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
-    gDebug_UARTConfig                        0x00001ffe   Data          10  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
-    [Anonymous Symbol]                       0x00001ffe   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
-    gMotor_AClockConfig                      0x00002008   Data           3  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
-    [Anonymous Symbol]                       0x00002008   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
-    gMotor_AConfig                           0x0000200c   Data           8  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
-    [Anonymous Symbol]                       0x0000200c   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
-    gMotor_BClockConfig                      0x00002014   Data           3  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
-    [Anonymous Symbol]                       0x00002014   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
-    gMotor_BConfig                           0x00002018   Data           8  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
-    [Anonymous Symbol]                       0x00002018   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
-    gSYSPLLConfig                            0x00002020   Data          40  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
-    [Anonymous Symbol]                       0x00002020   Section        0  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
-    [Anonymous Symbol]                       0x00002048   Section        0  empty.o(.rodata.str1.1)
+    __arm_cp.2_2                             0x00001324   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_3                             0x00001328   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    [Anonymous Symbol]                       0x0000132c   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
+    __arm_cp.4_0                             0x0000138c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
+    __arm_cp.4_2                             0x00001390   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
+    [Anonymous Symbol]                       0x00001394   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
+    __arm_cp.5_0                             0x000013f4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
+    __arm_cp.5_2                             0x000013f8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
+    __arm_cp.5_3                             0x000013fc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
+    [Anonymous Symbol]                       0x00001400   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
+    __arm_cp.3_0                             0x00001448   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
+    [Anonymous Symbol]                       0x0000144c   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    __arm_cp.7_0                             0x00001458   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    [Anonymous Symbol]                       0x0000145c   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    __arm_cp.0_0                             0x0000148c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    __arm_cp.0_1                             0x00001490   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    [Anonymous Symbol]                       0x00001494   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_0                             0x000014e8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_1                             0x000014ec   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_2                             0x000014f0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_3                             0x000014f4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    SysTick_Config                           0x000014f9   Thumb Code    68  ti_msp_dl_config.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x000014f8   Section        0  ti_msp_dl_config.o(.text.SysTick_Config)
+    __arm_cp.38_0                            0x0000153c   Number         4  ti_msp_dl_config.o(.text.SysTick_Config)
+    __arm_cp.38_1                            0x00001540   Number         4  ti_msp_dl_config.o(.text.SysTick_Config)
+    __arm_cp.38_2                            0x00001544   Number         4  ti_msp_dl_config.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x00001548   Section        0  my_ticks.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x00001550   Section        0  bsp_uart.o(.text.UART0_IRQHandler)
+    __arm_cp.6_0                             0x00001570   Number         4  bsp_uart.o(.text.UART0_IRQHandler)
+    __arm_cp.6_1                             0x00001574   Number         4  bsp_uart.o(.text.UART0_IRQHandler)
+    [Anonymous Symbol]                       0x00001578   Section        0  my_ticks.o(.text.WR_GetTick)
+    [Anonymous Symbol]                       0x00001580   Section        0  my_ticks.o(.text.WR_IncTik)
+    __arm_cp.0_0                             0x0000158c   Number         4  my_ticks.o(.text.WR_IncTik)
+    [Anonymous Symbol]                       0x00001590   Section        0  bsp_key.o(.text.WR_KeyControlTask)
+    __NVIC_ClearPendingIRQ                   0x000015c1   Thumb Code    40  bsp_uart.o(.text.__NVIC_ClearPendingIRQ)
+    [Anonymous Symbol]                       0x000015c0   Section        0  bsp_uart.o(.text.__NVIC_ClearPendingIRQ)
+    __arm_cp.4_0                             0x000015e8   Number         4  bsp_uart.o(.text.__NVIC_ClearPendingIRQ)
+    __NVIC_EnableIRQ                         0x000015ed   Thumb Code    40  bsp_uart.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x000015ec   Section        0  bsp_uart.o(.text.__NVIC_EnableIRQ)
+    __arm_cp.5_0                             0x00001614   Number         4  bsp_uart.o(.text.__NVIC_EnableIRQ)
+    __NVIC_SetPriority                       0x00001619   Thumb Code   124  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x00001618   Section        0  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
+    __arm_cp.40_0                            0x00001694   Number         4  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
+    __arm_cp.40_1                            0x00001698   Number         4  ti_msp_dl_config.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x0000169c   Section        0  bsp_uart.o(.text.fputc)
+    __arm_cp.0_0                             0x000016c4   Number         4  bsp_uart.o(.text.fputc)
+    [Anonymous Symbol]                       0x000016c8   Section        0  empty.o(.text.main)
+    __arm_cp.3_0                             0x00001738   Number         4  empty.o(.text.main)
+    __arm_cp.3_1                             0x0000173c   Number         4  empty.o(.text.main)
+    __arm_cp.3_2                             0x00001740   Number         4  empty.o(.text.main)
+    i.__0printf                              0x00001744   Section        0  printfa.o(i.__0printf)
+    i.__ARM_clz                              0x00001764   Section        0  depilogue.o(i.__ARM_clz)
+    i.__scatterload_copy                     0x00001798   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000017a8   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000017b0   Section       14  handlers.o(i.__scatterload_zeroinit)
+    _fp_digits                               0x000017c1   Thumb Code   344  printfa.o(i._fp_digits)
+    i._fp_digits                             0x000017c0   Section        0  printfa.o(i._fp_digits)
+    _printf_core                             0x00001935   Thumb Code  1754  printfa.o(i._printf_core)
+    i._printf_core                           0x00001934   Section        0  printfa.o(i._printf_core)
+    _printf_post_padding                     0x00002021   Thumb Code    32  printfa.o(i._printf_post_padding)
+    i._printf_post_padding                   0x00002020   Section        0  printfa.o(i._printf_post_padding)
+    _printf_pre_padding                      0x00002041   Thumb Code    44  printfa.o(i._printf_pre_padding)
+    i._printf_pre_padding                    0x00002040   Section        0  printfa.o(i._printf_pre_padding)
+    gDebug_UARTClockConfig                   0x0000206c   Data           2  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
+    [Anonymous Symbol]                       0x0000206c   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
+    gDebug_UARTConfig                        0x0000206e   Data          10  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
+    [Anonymous Symbol]                       0x0000206e   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
+    gMotor_AClockConfig                      0x00002078   Data           3  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
+    [Anonymous Symbol]                       0x00002078   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
+    gMotor_AConfig                           0x0000207c   Data           8  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
+    [Anonymous Symbol]                       0x0000207c   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
+    gMotor_BClockConfig                      0x00002084   Data           3  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
+    [Anonymous Symbol]                       0x00002084   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
+    gMotor_BConfig                           0x00002088   Data           8  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
+    [Anonymous Symbol]                       0x00002088   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
+    gSYSPLLConfig                            0x00002090   Data          40  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
+    [Anonymous Symbol]                       0x00002090   Section        0  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
+    [Anonymous Symbol]                       0x000020b8   Section        0  empty.o(.rodata.str1.1)
     .data                                    0x20200000   Section        4  stdout.o(.data)
-    BSP_KeyTask.task_next_time_bsp_keytask   0x20200070   Data           4  bsp_key.o(.bss.BSP_KeyTask.task_next_time_bsp_keytask)
-    [Anonymous Symbol]                       0x20200070   Section        0  bsp_key.o(.bss.BSP_KeyTask.task_next_time_bsp_keytask)
-    NULL_Test.task_next_time_NULL_test_task  0x20200074   Data           4  empty.o(.bss.NULL_Test.task_next_time_NULL_test_task)
-    [Anonymous Symbol]                       0x20200074   Section        0  empty.o(.bss.NULL_Test.task_next_time_NULL_test_task)
-    STACK                                    0x202001e0   Section      256  startup_mspm0g350x_uvision.o(STACK)
+    BSP_KeyTask.task_next_time_bsp_keytask   0x202000d0   Data           4  bsp_key.o(.bss.BSP_KeyTask.task_next_time_bsp_keytask)
+    [Anonymous Symbol]                       0x202000d0   Section        0  bsp_key.o(.bss.BSP_KeyTask.task_next_time_bsp_keytask)
+    NULL_Test.task_next_time_NULL_test_task  0x202000d4   Data           4  empty.o(.bss.NULL_Test.task_next_time_NULL_test_task)
+    [Anonymous Symbol]                       0x202000d4   Section        0  empty.o(.bss.NULL_Test.task_next_time_NULL_test_task)
+    STACK                                    0x20200240   Section      256  startup_mspm0g350x_uvision.o(STACK)
 
     Global Symbols
 
@@ -975,40 +975,40 @@ Image Symbol Table
     LED_Test                                 0x000011b1   Thumb Code    16  empty.o(.text.LED_Test)
     NULL_Test                                0x000011c1   Thumb Code    44  empty.o(.text.NULL_Test)
     SYSCFG_DL_Debug_UART_init                0x000011f1   Thumb Code    64  ti_msp_dl_config.o(.text.SYSCFG_DL_Debug_UART_init)
-    SYSCFG_DL_GPIO_init                      0x00001239   Thumb Code   168  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    SYSCFG_DL_Motor_A_init                   0x000012e9   Thumb Code    96  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
-    SYSCFG_DL_Motor_B_init                   0x00001351   Thumb Code    96  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
-    SYSCFG_DL_SYSCTL_init                    0x000013bd   Thumb Code    72  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
-    SYSCFG_DL_SYSTICK_init                   0x00001409   Thumb Code    12  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    SYSCFG_DL_init                           0x00001419   Thumb Code    48  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    SYSCFG_DL_initPower                      0x00001451   Thumb Code    84  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    SysTick_Handler                          0x00001505   Thumb Code     8  my_ticks.o(.text.SysTick_Handler)
-    UART0_IRQHandler                         0x0000150d   Thumb Code    32  bsp_uart.o(.text.UART0_IRQHandler)
-    WR_GetTick                               0x00001535   Thumb Code     8  my_ticks.o(.text.WR_GetTick)
-    WR_IncTik                                0x0000153d   Thumb Code    12  my_ticks.o(.text.WR_IncTik)
-    WR_KeyControlTask                        0x0000154d   Thumb Code    46  bsp_key.o(.text.WR_KeyControlTask)
-    fputc                                    0x00001659   Thumb Code    40  bsp_uart.o(.text.fputc)
-    main                                     0x00001685   Thumb Code    68  empty.o(.text.main)
-    __0printf                                0x000016d5   Thumb Code    24  printfa.o(i.__0printf)
-    __1printf                                0x000016d5   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x000016d5   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x000016d5   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x000016d5   Thumb Code     0  printfa.o(i.__0printf)
-    __ARM_clz                                0x000016f5   Thumb Code    46  depilogue.o(i.__ARM_clz)
-    __scatterload_copy                       0x00001729   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00001739   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001741   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00002058   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002078   Number         0  anon$$obj.o(Region$$Table)
+    SYSCFG_DL_GPIO_init                      0x00001239   Thumb Code   236  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    SYSCFG_DL_Motor_A_init                   0x0000132d   Thumb Code    96  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_A_init)
+    SYSCFG_DL_Motor_B_init                   0x00001395   Thumb Code    96  ti_msp_dl_config.o(.text.SYSCFG_DL_Motor_B_init)
+    SYSCFG_DL_SYSCTL_init                    0x00001401   Thumb Code    72  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
+    SYSCFG_DL_SYSTICK_init                   0x0000144d   Thumb Code    12  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    SYSCFG_DL_init                           0x0000145d   Thumb Code    48  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    SYSCFG_DL_initPower                      0x00001495   Thumb Code    84  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    SysTick_Handler                          0x00001549   Thumb Code     8  my_ticks.o(.text.SysTick_Handler)
+    UART0_IRQHandler                         0x00001551   Thumb Code    32  bsp_uart.o(.text.UART0_IRQHandler)
+    WR_GetTick                               0x00001579   Thumb Code     8  my_ticks.o(.text.WR_GetTick)
+    WR_IncTik                                0x00001581   Thumb Code    12  my_ticks.o(.text.WR_IncTik)
+    WR_KeyControlTask                        0x00001591   Thumb Code    46  bsp_key.o(.text.WR_KeyControlTask)
+    fputc                                    0x0000169d   Thumb Code    40  bsp_uart.o(.text.fputc)
+    main                                     0x000016c9   Thumb Code   112  empty.o(.text.main)
+    __0printf                                0x00001745   Thumb Code    24  printfa.o(i.__0printf)
+    __1printf                                0x00001745   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x00001745   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x00001745   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x00001745   Thumb Code     0  printfa.o(i.__0printf)
+    __ARM_clz                                0x00001765   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __scatterload_copy                       0x00001799   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000017a9   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000017b1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x000020c8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000020e8   Number         0  anon$$obj.o(Region$$Table)
     __stdout                                 0x20200000   Data           4  stdout.o(.data)
-    bsp_key_param                            0x20200004   Data          24  bsp_key.o(.data.bsp_key_param)
-    moror_dir_param                          0x2020001c   Data          32  bsp_motor.o(.data.moror_dir_param)
-    motor_param                              0x2020003c   Data          48  bsp_motor.o(.data.motor_param)
-    gMotor_ABackup                           0x20200078   Data         160  ti_msp_dl_config.o(.bss.gMotor_ABackup)
-    gMotor_BBackup                           0x20200118   Data         188  ti_msp_dl_config.o(.bss.gMotor_BBackup)
-    rx_data                                  0x202001d4   Data           1  bsp_uart.o(.bss.rx_data)
-    uwTick                                   0x202001d8   Data           4  my_ticks.o(.bss.uwTick)
-    __initial_sp                             0x202002e0   Data           0  startup_mspm0g350x_uvision.o(STACK)
+    bsp_key_param                            0x20200004   Data         120  bsp_key.o(.data.bsp_key_param)
+    moror_dir_param                          0x2020007c   Data          32  bsp_motor.o(.data.moror_dir_param)
+    motor_param                              0x2020009c   Data          48  bsp_motor.o(.data.motor_param)
+    gMotor_ABackup                           0x202000d8   Data         160  ti_msp_dl_config.o(.bss.gMotor_ABackup)
+    gMotor_BBackup                           0x20200178   Data         188  ti_msp_dl_config.o(.bss.gMotor_BBackup)
+    rx_data                                  0x20200234   Data           1  bsp_uart.o(.bss.rx_data)
+    uwTick                                   0x20200238   Data           4  my_ticks.o(.bss.uwTick)
+    __initial_sp                             0x20200340   Data           0  startup_mspm0g350x_uvision.o(STACK)
 
 
 
@@ -1018,9 +1018,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000020e8, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000021b8, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00002078, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000020e8, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1110,70 +1110,70 @@ Memory Map of the image
     0x000011b0   0x000011b0   0x00000010   Code   RO            2    .text.LED_Test      empty.o
     0x000011c0   0x000011c0   0x00000030   Code   RO            6    .text.NULL_Test     empty.o
     0x000011f0   0x000011f0   0x00000048   Code   RO           41    .text.SYSCFG_DL_Debug_UART_init  ti_msp_dl_config.o
-    0x00001238   0x00001238   0x000000b0   Code   RO           33    .text.SYSCFG_DL_GPIO_init  ti_msp_dl_config.o
-    0x000012e8   0x000012e8   0x00000068   Code   RO           37    .text.SYSCFG_DL_Motor_A_init  ti_msp_dl_config.o
-    0x00001350   0x00001350   0x0000006c   Code   RO           39    .text.SYSCFG_DL_Motor_B_init  ti_msp_dl_config.o
-    0x000013bc   0x000013bc   0x0000004c   Code   RO           35    .text.SYSCFG_DL_SYSCTL_init  ti_msp_dl_config.o
-    0x00001408   0x00001408   0x00000010   Code   RO           43    .text.SYSCFG_DL_SYSTICK_init  ti_msp_dl_config.o
-    0x00001418   0x00001418   0x00000038   Code   RO           29    .text.SYSCFG_DL_init  ti_msp_dl_config.o
-    0x00001450   0x00001450   0x00000064   Code   RO           31    .text.SYSCFG_DL_initPower  ti_msp_dl_config.o
-    0x000014b4   0x000014b4   0x00000050   Code   RO          105    .text.SysTick_Config  ti_msp_dl_config.o
-    0x00001504   0x00001504   0x00000008   Code   RO          133    .text.SysTick_Handler  my_ticks.o
-    0x0000150c   0x0000150c   0x00000028   Code   RO          170    .text.UART0_IRQHandler  bsp_uart.o
-    0x00001534   0x00001534   0x00000008   Code   RO          129    .text.WR_GetTick    my_ticks.o
-    0x0000153c   0x0000153c   0x00000010   Code   RO          127    .text.WR_IncTik     my_ticks.o
-    0x0000154c   0x0000154c   0x0000002e   Code   RO          147    .text.WR_KeyControlTask  bsp_key.o
-    0x0000157a   0x0000157a   0x00000002   PAD
-    0x0000157c   0x0000157c   0x0000002c   Code   RO          166    .text.__NVIC_ClearPendingIRQ  bsp_uart.o
-    0x000015a8   0x000015a8   0x0000002c   Code   RO          168    .text.__NVIC_EnableIRQ  bsp_uart.o
-    0x000015d4   0x000015d4   0x00000084   Code   RO          109    .text.__NVIC_SetPriority  ti_msp_dl_config.o
-    0x00001658   0x00001658   0x0000002c   Code   RO          158    .text.fputc         bsp_uart.o
-    0x00001684   0x00001684   0x00000050   Code   RO            8    .text.main          empty.o
-    0x000016d4   0x000016d4   0x00000020   Code   RO          392    i.__0printf         mc_p.l(printfa.o)
-    0x000016f4   0x000016f4   0x0000002e   Code   RO          467    i.__ARM_clz         mf_p.l(depilogue.o)
-    0x00001722   0x00001722   0x00000006   PAD
-    0x00001728   0x00001728   0x0000000e   Code   RO          471    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00001736   0x00001736   0x00000002   PAD
-    0x00001738   0x00001738   0x00000002   Code   RO          472    i.__scatterload_null  mc_p.l(handlers.o)
-    0x0000173a   0x0000173a   0x00000006   PAD
-    0x00001740   0x00001740   0x0000000e   Code   RO          473    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x0000174e   0x0000174e   0x00000002   PAD
-    0x00001750   0x00001750   0x00000174   Code   RO          399    i._fp_digits        mc_p.l(printfa.o)
-    0x000018c4   0x000018c4   0x000006ec   Code   RO          400    i._printf_core      mc_p.l(printfa.o)
-    0x00001fb0   0x00001fb0   0x00000020   Code   RO          401    i._printf_post_padding  mc_p.l(printfa.o)
-    0x00001fd0   0x00001fd0   0x0000002c   Code   RO          402    i._printf_pre_padding  mc_p.l(printfa.o)
-    0x00001ffc   0x00001ffc   0x00000002   Data   RO          118    .rodata.gDebug_UARTClockConfig  ti_msp_dl_config.o
-    0x00001ffe   0x00001ffe   0x0000000a   Data   RO          119    .rodata.gDebug_UARTConfig  ti_msp_dl_config.o
-    0x00002008   0x00002008   0x00000003   Data   RO          114    .rodata.gMotor_AClockConfig  ti_msp_dl_config.o
-    0x0000200b   0x0000200b   0x00000001   PAD
-    0x0000200c   0x0000200c   0x00000008   Data   RO          115    .rodata.gMotor_AConfig  ti_msp_dl_config.o
-    0x00002014   0x00002014   0x00000003   Data   RO          116    .rodata.gMotor_BClockConfig  ti_msp_dl_config.o
-    0x00002017   0x00002017   0x00000001   PAD
-    0x00002018   0x00002018   0x00000008   Data   RO          117    .rodata.gMotor_BConfig  ti_msp_dl_config.o
-    0x00002020   0x00002020   0x00000028   Data   RO          113    .rodata.gSYSPLLConfig  ti_msp_dl_config.o
-    0x00002048   0x00002048   0x0000000f   Data   RO           11    .rodata.str1.1      empty.o
-    0x00002057   0x00002057   0x00000001   PAD
-    0x00002058   0x00002058   0x00000020   Data   RO          470    Region$$Table       anon$$obj.o
+    0x00001238   0x00001238   0x000000f4   Code   RO           33    .text.SYSCFG_DL_GPIO_init  ti_msp_dl_config.o
+    0x0000132c   0x0000132c   0x00000068   Code   RO           37    .text.SYSCFG_DL_Motor_A_init  ti_msp_dl_config.o
+    0x00001394   0x00001394   0x0000006c   Code   RO           39    .text.SYSCFG_DL_Motor_B_init  ti_msp_dl_config.o
+    0x00001400   0x00001400   0x0000004c   Code   RO           35    .text.SYSCFG_DL_SYSCTL_init  ti_msp_dl_config.o
+    0x0000144c   0x0000144c   0x00000010   Code   RO           43    .text.SYSCFG_DL_SYSTICK_init  ti_msp_dl_config.o
+    0x0000145c   0x0000145c   0x00000038   Code   RO           29    .text.SYSCFG_DL_init  ti_msp_dl_config.o
+    0x00001494   0x00001494   0x00000064   Code   RO           31    .text.SYSCFG_DL_initPower  ti_msp_dl_config.o
+    0x000014f8   0x000014f8   0x00000050   Code   RO          105    .text.SysTick_Config  ti_msp_dl_config.o
+    0x00001548   0x00001548   0x00000008   Code   RO          133    .text.SysTick_Handler  my_ticks.o
+    0x00001550   0x00001550   0x00000028   Code   RO          170    .text.UART0_IRQHandler  bsp_uart.o
+    0x00001578   0x00001578   0x00000008   Code   RO          129    .text.WR_GetTick    my_ticks.o
+    0x00001580   0x00001580   0x00000010   Code   RO          127    .text.WR_IncTik     my_ticks.o
+    0x00001590   0x00001590   0x0000002e   Code   RO          147    .text.WR_KeyControlTask  bsp_key.o
+    0x000015be   0x000015be   0x00000002   PAD
+    0x000015c0   0x000015c0   0x0000002c   Code   RO          166    .text.__NVIC_ClearPendingIRQ  bsp_uart.o
+    0x000015ec   0x000015ec   0x0000002c   Code   RO          168    .text.__NVIC_EnableIRQ  bsp_uart.o
+    0x00001618   0x00001618   0x00000084   Code   RO          109    .text.__NVIC_SetPriority  ti_msp_dl_config.o
+    0x0000169c   0x0000169c   0x0000002c   Code   RO          158    .text.fputc         bsp_uart.o
+    0x000016c8   0x000016c8   0x0000007c   Code   RO            8    .text.main          empty.o
+    0x00001744   0x00001744   0x00000020   Code   RO          392    i.__0printf         mc_p.l(printfa.o)
+    0x00001764   0x00001764   0x0000002e   Code   RO          467    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x00001792   0x00001792   0x00000006   PAD
+    0x00001798   0x00001798   0x0000000e   Code   RO          471    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x000017a6   0x000017a6   0x00000002   PAD
+    0x000017a8   0x000017a8   0x00000002   Code   RO          472    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000017aa   0x000017aa   0x00000006   PAD
+    0x000017b0   0x000017b0   0x0000000e   Code   RO          473    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x000017be   0x000017be   0x00000002   PAD
+    0x000017c0   0x000017c0   0x00000174   Code   RO          399    i._fp_digits        mc_p.l(printfa.o)
+    0x00001934   0x00001934   0x000006ec   Code   RO          400    i._printf_core      mc_p.l(printfa.o)
+    0x00002020   0x00002020   0x00000020   Code   RO          401    i._printf_post_padding  mc_p.l(printfa.o)
+    0x00002040   0x00002040   0x0000002c   Code   RO          402    i._printf_pre_padding  mc_p.l(printfa.o)
+    0x0000206c   0x0000206c   0x00000002   Data   RO          118    .rodata.gDebug_UARTClockConfig  ti_msp_dl_config.o
+    0x0000206e   0x0000206e   0x0000000a   Data   RO          119    .rodata.gDebug_UARTConfig  ti_msp_dl_config.o
+    0x00002078   0x00002078   0x00000003   Data   RO          114    .rodata.gMotor_AClockConfig  ti_msp_dl_config.o
+    0x0000207b   0x0000207b   0x00000001   PAD
+    0x0000207c   0x0000207c   0x00000008   Data   RO          115    .rodata.gMotor_AConfig  ti_msp_dl_config.o
+    0x00002084   0x00002084   0x00000003   Data   RO          116    .rodata.gMotor_BClockConfig  ti_msp_dl_config.o
+    0x00002087   0x00002087   0x00000001   PAD
+    0x00002088   0x00002088   0x00000008   Data   RO          117    .rodata.gMotor_BConfig  ti_msp_dl_config.o
+    0x00002090   0x00002090   0x00000028   Data   RO          113    .rodata.gSYSPLLConfig  ti_msp_dl_config.o
+    0x000020b8   0x000020b8   0x0000000f   Data   RO           11    .rodata.str1.1      empty.o
+    0x000020c7   0x000020c7   0x00000001   PAD
+    0x000020c8   0x000020c8   0x00000020   Data   RO          470    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x20200000, Load base: 0x00002078, Size: 0x000002e0, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM2 (Exec base: 0x20200000, Load base: 0x000020e8, Size: 0x00000340, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20200000   0x00002078   0x00000004   Data   RW          433    .data               mc_p.l(stdout.o)
-    0x20200004   0x0000207c   0x00000018   Data   RW          149    .data.bsp_key_param  bsp_key.o
-    0x2020001c   0x00002094   0x00000020   Data   RW          192    .data.moror_dir_param  bsp_motor.o
-    0x2020003c   0x000020b4   0x00000030   Data   RW          193    .data.motor_param   bsp_motor.o
-    0x2020006c   0x000020e4   0x00000004   PAD
-    0x20200070        -       0x00000004   Zero   RW          150    .bss.BSP_KeyTask.task_next_time_bsp_keytask  bsp_key.o
-    0x20200074        -       0x00000004   Zero   RW           10    .bss.NULL_Test.task_next_time_NULL_test_task  empty.o
-    0x20200078        -       0x000000a0   Zero   RW          111    .bss.gMotor_ABackup  ti_msp_dl_config.o
-    0x20200118        -       0x000000bc   Zero   RW          112    .bss.gMotor_BBackup  ti_msp_dl_config.o
-    0x202001d4        -       0x00000001   Zero   RW          176    .bss.rx_data        bsp_uart.o
-    0x202001d5   0x000020e4   0x00000003   PAD
-    0x202001d8        -       0x00000004   Zero   RW          135    .bss.uwTick         my_ticks.o
-    0x202001dc   0x000020e4   0x00000004   PAD
-    0x202001e0        -       0x00000100   Zero   RW           19    STACK               startup_mspm0g350x_uvision.o
+    0x20200000   0x000020e8   0x00000004   Data   RW          433    .data               mc_p.l(stdout.o)
+    0x20200004   0x000020ec   0x00000078   Data   RW          149    .data.bsp_key_param  bsp_key.o
+    0x2020007c   0x00002164   0x00000020   Data   RW          192    .data.moror_dir_param  bsp_motor.o
+    0x2020009c   0x00002184   0x00000030   Data   RW          193    .data.motor_param   bsp_motor.o
+    0x202000cc   0x000021b4   0x00000004   PAD
+    0x202000d0        -       0x00000004   Zero   RW          150    .bss.BSP_KeyTask.task_next_time_bsp_keytask  bsp_key.o
+    0x202000d4        -       0x00000004   Zero   RW           10    .bss.NULL_Test.task_next_time_NULL_test_task  empty.o
+    0x202000d8        -       0x000000a0   Zero   RW          111    .bss.gMotor_ABackup  ti_msp_dl_config.o
+    0x20200178        -       0x000000bc   Zero   RW          112    .bss.gMotor_BBackup  ti_msp_dl_config.o
+    0x20200234        -       0x00000001   Zero   RW          176    .bss.rx_data        bsp_uart.o
+    0x20200235   0x000021b4   0x00000003   PAD
+    0x20200238        -       0x00000004   Zero   RW          135    .bss.uwTick         my_ticks.o
+    0x2020023c   0x000021b4   0x00000004   PAD
+    0x20200240        -       0x00000100   Zero   RW           19    STACK               startup_mspm0g350x_uvision.o
 
 
 
@@ -1199,16 +1199,16 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       588          8          0         24          4       4548   bsp_key.o
+       588          8          0        120          4       4555   bsp_key.o
        612         32          0         80          0       6679   bsp_motor.o
        278         28          0          0          1       5761   bsp_uart.o
-       168         20         15          0          4       3962   empty.o
+       212         20         15          0          4       4065   empty.o
         32          4          0          0          4        986   my_ticks.o
-        20          4        192          0        256        616   startup_mspm0g350x_uvision.o
-      1732        168         74          0        348      26028   ti_msp_dl_config.o
+        20          4        192          0        256        620   startup_mspm0g350x_uvision.o
+      1800        168         74          0        348      26033   ti_msp_dl_config.o
 
     ----------------------------------------------------------------------
-      3440        264        316        104        628      48580   Object Totals
+      3552        264        316        200        628      48699   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         10          0          3          0         11          0   (incl. Padding)
 
@@ -1267,15 +1267,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7996        484        316        108        628     118744   Grand Totals
-      7996        484        316        108        628     118744   ELF Image Totals
-      7996        484        316        108          0          0   ROM Totals
+      8108        484        316        204        628     118863   Grand Totals
+      8108        484        316        204        628     118863   ELF Image Totals
+      8108        484        316        204          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 8312 (   8.12kB)
-    Total RW  Size (RW Data + ZI Data)               736 (   0.72kB)
-    Total ROM Size (Code + RO Data + RW Data)       8420 (   8.22kB)
+    Total RO  Size (Code + RO Data)                 8424 (   8.23kB)
+    Total RW  Size (RW Data + ZI Data)               832 (   0.81kB)
+    Total ROM Size (Code + RO Data + RW Data)       8628 (   8.43kB)
 
 ==============================================================================
 

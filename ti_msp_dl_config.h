@@ -135,12 +135,26 @@ extern "C" {
 /* Defines for Debug_led1: GPIOB.22 with pinCMx 50 on package pin 21 */
 #define Debug_led_Debug_led1_PIN                                (DL_GPIO_PIN_22)
 #define Debug_led_Debug_led1_IOMUX                               (IOMUX_PINCM50)
-/* Port definition for Pin Group Debug_key */
-#define Debug_key_PORT                                                   (GPIOB)
-
-/* Defines for Board_Key: GPIOB.21 with pinCMx 49 on package pin 20 */
-#define Debug_key_Board_Key_PIN                                 (DL_GPIO_PIN_21)
-#define Debug_key_Board_Key_IOMUX                                (IOMUX_PINCM49)
+/* Defines for Key_center: GPIOB.25 with pinCMx 56 on package pin 27 */
+#define Debug_key_Key_center_PORT                                        (GPIOB)
+#define Debug_key_Key_center_PIN                                (DL_GPIO_PIN_25)
+#define Debug_key_Key_center_IOMUX                               (IOMUX_PINCM56)
+/* Defines for Key_left: GPIOA.14 with pinCMx 36 on package pin 7 */
+#define Debug_key_Key_left_PORT                                          (GPIOA)
+#define Debug_key_Key_left_PIN                                  (DL_GPIO_PIN_14)
+#define Debug_key_Key_left_IOMUX                                 (IOMUX_PINCM36)
+/* Defines for Key_right: GPIOA.15 with pinCMx 37 on package pin 8 */
+#define Debug_key_Key_right_PORT                                         (GPIOA)
+#define Debug_key_Key_right_PIN                                 (DL_GPIO_PIN_15)
+#define Debug_key_Key_right_IOMUX                                (IOMUX_PINCM37)
+/* Defines for Key_down: GPIOA.17 with pinCMx 39 on package pin 10 */
+#define Debug_key_Key_down_PORT                                          (GPIOA)
+#define Debug_key_Key_down_PIN                                  (DL_GPIO_PIN_17)
+#define Debug_key_Key_down_IOMUX                                 (IOMUX_PINCM39)
+/* Defines for Key_up: GPIOB.24 with pinCMx 52 on package pin 23 */
+#define Debug_key_Key_up_PORT                                            (GPIOB)
+#define Debug_key_Key_up_PIN                                    (DL_GPIO_PIN_24)
+#define Debug_key_Key_up_IOMUX                                   (IOMUX_PINCM52)
 /* Port definition for Pin Group Motor_DIR */
 #define Motor_DIR_PORT                                                   (GPIOB)
 

@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\empty_LP_MSPM0G3507_nortos_keil.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\empty_LP_MSPM0G3507_nortos_keil.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Sun May 10 21:39:48 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Sun May 10 22:58:16 2026
 <BR><P>
-<H3>Maximum Stack Usage =        104 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        112 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; BspMotor_SetSpeed &rArr; DL_GPIO_clearPins
 <P>
@@ -421,8 +421,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
 </UL>
 
-<P><STRONG><a name="[4b]"></a>SYSCFG_DL_GPIO_init</STRONG> (Thumb, 168 bytes, Stack size 40 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = SYSCFG_DL_GPIO_init &rArr; DL_GPIO_initDigitalInputFeatures
+<P><STRONG><a name="[4b]"></a>SYSCFG_DL_GPIO_init</STRONG> (Thumb, 236 bytes, Stack size 56 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = SYSCFG_DL_GPIO_init &rArr; DL_GPIO_initDigitalInputFeatures
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_GPIO_setPins
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_GPIO_clearPins
@@ -492,7 +492,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[66]"></a>SYSCFG_DL_init</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = SYSCFG_DL_init &rArr; SYSCFG_DL_Motor_B_init &rArr; DL_Timer_setCounterControl &rArr; DL_Common_updateReg
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = SYSCFG_DL_init &rArr; SYSCFG_DL_GPIO_init &rArr; DL_GPIO_initDigitalInputFeatures
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_SYSTICK_init
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_Debug_UART_init
@@ -557,8 +557,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0printf)
 </UL>
-<P><STRONG><a name="[1e]"></a>main</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, empty.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = main &rArr; BspMotor_SetSpeed &rArr; DL_GPIO_clearPins
+<P><STRONG><a name="[1e]"></a>main</STRONG> (Thumb, 112 bytes, Stack size 24 bytes, empty.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = main &rArr; BspMotor_SetSpeed &rArr; DL_GPIO_clearPins
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WR_KeyControlTask
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_KeyTask
