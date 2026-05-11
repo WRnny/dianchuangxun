@@ -78,13 +78,4 @@ void BspBuzzer_toggle(void)
     }
 }
 
-/**
- * @brief 蜂鸣器提示任务
- * 
- * @param dt 蜂鸣器的鸣叫时间
- */
-void Buzeer_AlertTask(uint32_t dt)
-{
-    WR_TASK_PERIODIC(buzzer_alerttask, dt);
-    BspBuzzer_toggle();
-}
+

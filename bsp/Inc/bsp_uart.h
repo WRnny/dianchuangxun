@@ -6,11 +6,9 @@
 #include "string.h"
 #include "stdlib.h"
 
- #define UART_RX_BUF_SIZE 32
-
 extern uint8_t rx_data;
 
-extern float Yaw_received; // Yaw轴接收数据
+extern volatile float Yaw_received; // Yaw轴接收数据
 
 /**
  * @brief 串口初始化
@@ -19,11 +17,12 @@ extern float Yaw_received; // Yaw轴接收数据
 void BspUART_Init(void);
 
 /**
- * @brief 串口发送VOFA数据
- * 
- * @param data 发送的数据
- * @param count 发送多少数据
+ * @brief 发送VOFA JustFloat协议数据
+ *
+ * @param data 浮点数据数组
+ * @param count 数据个数
+ * @return 发送是否成功
  */
-void VOFA_SendData(float* data, int count);
+bool VOFA_SendData(float *data, int count);
 
 #endif /* __BSP_UART_H__ */

@@ -38,7 +38,32 @@ typedef void(*TaskFunc)(void);
 
 extern bsp_key_param_t bsp_key_param[];
 
+
+ /**
+  * @brief 按键任务初始化
+  * 
+  * @note 主要是初始化定时器
+  * 
+  */
+void BspKey_Init();
+
+/**
+ * @brief 非阻塞式按键检测状态
+ * 
+ * @note 检测逻辑要一致
+ * @note 如果引脚配置上拉电阻需要把invert打开
+ * 
+ */
+
 void BSP_KeyTask(void);
+
+/**
+ * @brief 执行简单的按键触发逻辑
+ * 
+ * @param task 执行的任务逻辑
+ * @param key_flag 指定按键检测方式
+ * 
+ */
 void WR_KeyControlTask(TaskFunc task, bool* key_flag);
 
 #endif /* BSP_KEY_H */

@@ -28,7 +28,12 @@ void BspEncoder_Init(void)
 
     }
 
+    // 清除定时器中断标志位
+    NVIC_ClearPendingIRQ(Speedmeasurement_Task_INST_INT_IRQN);
 
+    // 使能定时器中断
+    NVIC_EnableIRQ(Speedmeasurement_Task_INST_INT_IRQN);
+    
 }
 
 /**
@@ -48,8 +53,6 @@ void BspEncoder_Init(void)
  */
 void Claculate_MotorSpeed(void)
 {
-    WR_TASK_PERIODIC(claculate_motorspeed_task, 50);
-
     for(int i = 0; i < BSP_ENCODER_NUM; i++)
     {
         // 暂存转的圈数的变量
@@ -104,5 +107,23 @@ void GROUP1_IRQHandler(void)
         // 清除中断标志位
         DL_GPIO_clearInterruptStatus(bsp_encoder_param[i].gpio_A, bsp_encoder_param[i].pins_A);
         DL_GPIO_clearInterruptStatus(bsp_encoder_param[i].gpio_B, bsp_encoder_param[i].pins_B);
+    }
+}
+
+/**
+ * @brief 定时器中断回调函数,每50ms进行速度计算
+ * 
+ */
+void Speedmeasurement_Task_INST_IRQHandler(void)
+{
+    switch (DL_Timer_getPendingInterrupt(Speedmeasurement_Task_INST))
+    {
+    case DL_TIMER_IIDX_ZERO:
+        Claculate_MotorSpeed();
+        DL_Timer_clearInterruptStatus(Speedmeasurement_Task_INST, DL_TIMER_IIDX_ZERO);
+        break;
+    
+    default:
+        break;
     }
 }

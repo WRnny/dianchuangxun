@@ -120,11 +120,16 @@ extern "C" {
 
 
 
-/* Defines for WR_TASK_PERIODIC_TICK */
-#define WR_TASK_PERIODIC_TICK_INST                                      (TIMG12)
-#define WR_TASK_PERIODIC_TICK_INST_IRQHandler                       TIMG12_IRQHandler
-#define WR_TASK_PERIODIC_TICK_INST_INT_IRQN                       (TIMG12_INT_IRQn)
-#define WR_TASK_PERIODIC_TICK_INST_LOAD_VALUE                                (79999U)
+/* Defines for Key_task */
+#define Key_task_INST                                                    (TIMG6)
+#define Key_task_INST_IRQHandler                                TIMG6_IRQHandler
+#define Key_task_INST_INT_IRQN                                  (TIMG6_INT_IRQn)
+#define Key_task_INST_LOAD_VALUE                                        (15999U)
+/* Defines for Speedmeasurement_Task */
+#define Speedmeasurement_Task_INST                                       (TIMG0)
+#define Speedmeasurement_Task_INST_IRQHandler                        TIMG0_IRQHandler
+#define Speedmeasurement_Task_INST_INT_IRQN                        (TIMG0_INT_IRQn)
+#define Speedmeasurement_Task_INST_LOAD_VALUE                                 (2499U)
 
 
 
@@ -264,7 +269,8 @@ void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_Motor_A_init(void);
 void SYSCFG_DL_Motor_B_init(void);
 void SYSCFG_DL_Debug_Buzzer_init(void);
-void SYSCFG_DL_WR_TASK_PERIODIC_TICK_init(void);
+void SYSCFG_DL_Key_task_init(void);
+void SYSCFG_DL_Speedmeasurement_Task_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
 void SYSCFG_DL_Rx_yaw_init(void);
 

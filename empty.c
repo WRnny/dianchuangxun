@@ -55,50 +55,36 @@ void NULL_Test(void)
 int main(void)
 {
     SYSCFG_DL_init();
-    BspUART_Init();
-    BspMotor_Init();
+    BspKey_Init();
+    BspUART_Init();    
     BspEncoder_Init();
-
-    NVIC_ClearPendingIRQ(WR_TASK_PERIODIC_TICK_INST_INT_IRQN);
-	NVIC_EnableIRQ(WR_TASK_PERIODIC_TICK_INST_INT_IRQN);
+    BspMotor_Init();
 
     while (1) 
     {
         BspMotor_SetSpeed(BSP_MOTOR_A, 0);
         BspMotor_SetSpeed(BSP_MOTOR_B, 0);
-
-        // 不能用printf会卡死
-        // printf("%f, %f\r\n", (float)bsp_encoder_param[E1].count, (float)bsp_encoder_param[E2].count);
-        // vofa_arry[0] = bsp_encoder_param[E1].speed;
-        // vofa_arry[1] = bsp_encoder_param[E2].speed;
-        // vofa_arry[2] = bsp_encoder_param[E1].distance;
-        // vofa_arry[3] = bsp_encoder_param[E2].distance;
-
-        vofa_arry[0] = Yaw_received;
-        vofa_arry[1] = coord;
-        vofa_arry[2] = last_coord;
-
-        VOFA_SendData(vofa_arry, 3);
-    }
-}
-
-void WR_TASK_PERIODIC_TICK_INST_IRQHandler(void)
-{
-    if( DL_Timer_getPendingInterrupt(WR_TASK_PERIODIC_TICK_INST) == DL_TIMER_IIDX_ZERO )
-    {
-
-        Track_Task();
-        BSP_KeyTask();
-        Claculate_MotorSpeed();
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_center].key_longpressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_right].key_releaseflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_left].key_pressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_up].key_longpressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_down].key_releaseflag);
 
-    }
 
-    DL_Timer_clearInterruptStatus(WR_TASK_PERIODIC_TICK_INST, DL_TIMER_IIDX_ZERO);
+        // 不清楚VOFA什么问题部分位的值一直是0
+        // vofa_arry[0] = bsp_encoder_param[E2].speed;
+        // vofa_arry[1] = bsp_encoder_param[E2].distance;
+        // vofa_arry[2] = bsp_encoder_param[E1].speed;
+        // vofa_arry[4] = bsp_encoder_param[E1].distance;
+
+        // vofa_arry[0] = Yaw_received;
+        // vofa_arry[0] = coord;
+        // vofa_arry[1] = last_coord;
+        // vofa_arry[2] = qty;
+
+        // VOFA_SendData(vofa_arry, 1);
+    }
 }
+
 
 
