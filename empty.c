@@ -59,6 +59,7 @@ int main(void)
     BspUART_Init();    
     BspEncoder_Init();
     BspMotor_Init();
+    BspTarck_Init();
 
     while (1) 
     {
@@ -82,7 +83,7 @@ int main(void)
         // vofa_arry[1] = last_coord;
         // vofa_arry[2] = qty;
 
-        // VOFA_SendData(vofa_arry, 1);
+        VOFA_SendData(vofa_arry, 1);
     }
 }
 

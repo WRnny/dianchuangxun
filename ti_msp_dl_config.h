@@ -121,15 +121,20 @@ extern "C" {
 
 
 /* Defines for Key_task */
-#define Key_task_INST                                                    (TIMG6)
-#define Key_task_INST_IRQHandler                                TIMG6_IRQHandler
-#define Key_task_INST_INT_IRQN                                  (TIMG6_INT_IRQn)
-#define Key_task_INST_LOAD_VALUE                                        (15999U)
+#define Key_task_INST                                                    (TIMG8)
+#define Key_task_INST_IRQHandler                                TIMG8_IRQHandler
+#define Key_task_INST_INT_IRQN                                  (TIMG8_INT_IRQn)
+#define Key_task_INST_LOAD_VALUE                                         (7999U)
 /* Defines for Speedmeasurement_Task */
 #define Speedmeasurement_Task_INST                                       (TIMG0)
 #define Speedmeasurement_Task_INST_IRQHandler                        TIMG0_IRQHandler
 #define Speedmeasurement_Task_INST_INT_IRQN                        (TIMG0_INT_IRQn)
 #define Speedmeasurement_Task_INST_LOAD_VALUE                                 (2499U)
+/* Defines for Track_task */
+#define Track_task_INST                                                  (TIMG6)
+#define Track_task_INST_IRQHandler                              TIMG6_IRQHandler
+#define Track_task_INST_INT_IRQN                                (TIMG6_INT_IRQn)
+#define Track_task_INST_LOAD_VALUE                                      (49999U)
 
 
 
@@ -271,6 +276,7 @@ void SYSCFG_DL_Motor_B_init(void);
 void SYSCFG_DL_Debug_Buzzer_init(void);
 void SYSCFG_DL_Key_task_init(void);
 void SYSCFG_DL_Speedmeasurement_Task_init(void);
+void SYSCFG_DL_Track_task_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
 void SYSCFG_DL_Rx_yaw_init(void);
 

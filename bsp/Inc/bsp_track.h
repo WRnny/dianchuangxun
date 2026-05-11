@@ -26,6 +26,12 @@ extern volatile float coord;              // 当前时刻检测到的黑线位�
 extern volatile float last_coord;         // 上一时刻检测到的黑线位置
 
 /**
+ * @brief 循迹部分初始化
+ * 
+ */
+void BspTarck_Init(void);
+
+/**
  * @brief 循迹模块信息数据化过程
  * 
  * @note 没什么要注意的，之后根据情况自己加标志位就得了

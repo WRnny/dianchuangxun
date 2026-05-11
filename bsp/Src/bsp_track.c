@@ -18,6 +18,21 @@ volatile float qty = 0.0f;                // 检测到黑线的传感器数量
 volatile float coord = 0.0f;              // 当前时刻检测到的黑线位置
 volatile float last_coord = 4.0f;         // 上一时刻检测到的黑线位置
 
+/****************** 函数部分 **************************/
+
+/**
+ * @brief 循迹部分初始化
+ * 
+ */
+void BspTarck_Init(void)
+{
+    // 清除循迹定时器中断标志位
+    NVIC_ClearPendingIRQ(Track_task_INST_INT_IRQN);
+
+    // 使能循迹中断
+    NVIC_EnableIRQ(Track_task_INST_INT_IRQN);
+}
+
 /**
  * @brief 循迹模块信息数据化过程
  * 
@@ -26,7 +41,6 @@ volatile float last_coord = 4.0f;         // 上一时刻检测到的黑线位�
  */
 void Track_Task(void)
 {
-    WR_TASK_PERIODIC(track_task_id, 5);
 
     qty = 0;
     float pin_sum = 0;
@@ -40,4 +54,18 @@ void Track_Task(void)
 
     if(0 == qty)    coord = last_coord; 
     else  {coord = pin_sum / (qty * 1.0f); last_coord = coord;}
+}
+
+void Track_task_INST_IRQHandler(void)
+{
+    switch (DL_Timer_getPendingInterrupt(Track_task_INST))
+    {
+    case DL_TIMER_IIDX_ZERO:
+        Track_Task();
+        DL_Timer_clearInterruptStatus(Track_task_INST, DL_TIMER_IIDX_ZERO);
+        break;
+    
+    default:
+        break;
+    }
 }
