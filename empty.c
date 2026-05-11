@@ -40,6 +40,8 @@
 #include "bsp_buzzer.h"
 #include "bsp_encoder.h"
 
+#include "pid.h"
+
 float vofa_arry[20];
 
 void LED_Test(void)
@@ -59,13 +61,22 @@ int main(void)
     BspUART_Init();    
     BspEncoder_Init();
     BspMotor_Init();
-    BspTarck_Init();
+    // BspTarck_Init();
+    SpeedLop_Init();
 
     while (1) 
     {
-        BspMotor_SetSpeed(BSP_MOTOR_A, 0);
-        BspMotor_SetSpeed(BSP_MOTOR_B, 0);
-        WR_KeyControlTask(LED_Test, &bsp_key_param[Key_center].key_longpressflag);
+
+        Track_Task();
+        // BspMotor_SetSpeed(BSP_MOTOR_A, 10000); // 右轮
+        // BspMotor_SetSpeed(BSP_MOTOR_B, 10000); // 左轮 
+        // SpeedLoop_set(BSP_MOTOR_A, 40);
+        // SpeedLoop_set(BSP_MOTOR_B, 40);
+        // 长按中间按键开启循迹调试模式
+        WR_KeyControlTask(TrackLop_Init, &bsp_key_param[Key_center].key_longpressflag);
+
+
+
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_right].key_releaseflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_left].key_pressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_up].key_longpressflag);
@@ -73,15 +84,16 @@ int main(void)
 
 
         // 不清楚VOFA什么问题部分位的值一直是0
-        // vofa_arry[0] = bsp_encoder_param[E2].speed;
-        // vofa_arry[1] = bsp_encoder_param[E2].distance;
-        // vofa_arry[2] = bsp_encoder_param[E1].speed;
-        // vofa_arry[4] = bsp_encoder_param[E1].distance;
+        // vofa_arry[0] = bsp_encoder_param[E1].speed;
+        // vofa_arry[1] = bsp_encoder_param[E2].speed;
 
-        // vofa_arry[0] = Yaw_received;
+        vofa_arry[0] = Yaw_received;
         // vofa_arry[0] = coord;
         // vofa_arry[1] = last_coord;
         // vofa_arry[2] = qty;
+
+        // vofa_arry[0] = coord;
+        // vofa_arry[1] = last_coord;
 
         VOFA_SendData(vofa_arry, 1);
     }

@@ -43,7 +43,7 @@
 DL_TimerG_backupConfig gMotor_ABackup;
 DL_TimerA_backupConfig gMotor_BBackup;
 DL_TimerA_backupConfig gDebug_BuzzerBackup;
-DL_TimerG_backupConfig gTrack_taskBackup;
+DL_TimerG_backupConfig gPidTrack_TaskBackup;
 
 /*
  *  ======== SYSCFG_DL_init ========
@@ -59,8 +59,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
     SYSCFG_DL_Motor_B_init();
     SYSCFG_DL_Debug_Buzzer_init();
     SYSCFG_DL_Key_task_init();
-    SYSCFG_DL_Speedmeasurement_Task_init();
-    SYSCFG_DL_Track_task_init();
+    SYSCFG_DL_PidSpeed_Task_init();
+    SYSCFG_DL_PidTrack_Task_init();
+    SYSCFG_DL_PidAngle_Task_init();
     SYSCFG_DL_Debug_UART_init();
     SYSCFG_DL_Rx_yaw_init();
     SYSCFG_DL_SYSTICK_init();
@@ -68,7 +69,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
 	gMotor_ABackup.backupRdy 	= false;
 	gMotor_BBackup.backupRdy 	= false;
 	gDebug_BuzzerBackup.backupRdy 	= false;
-	gTrack_taskBackup.backupRdy 	= false;
+	gPidTrack_TaskBackup.backupRdy 	= false;
 
 
 }
@@ -83,7 +84,7 @@ SYSCONFIG_WEAK bool SYSCFG_DL_saveConfiguration(void)
 	retStatus &= DL_TimerG_saveConfiguration(Motor_A_INST, &gMotor_ABackup);
 	retStatus &= DL_TimerA_saveConfiguration(Motor_B_INST, &gMotor_BBackup);
 	retStatus &= DL_TimerA_saveConfiguration(Debug_Buzzer_INST, &gDebug_BuzzerBackup);
-	retStatus &= DL_TimerG_saveConfiguration(Track_task_INST, &gTrack_taskBackup);
+	retStatus &= DL_TimerG_saveConfiguration(PidTrack_Task_INST, &gPidTrack_TaskBackup);
 
     return retStatus;
 }
@@ -96,7 +97,7 @@ SYSCONFIG_WEAK bool SYSCFG_DL_restoreConfiguration(void)
 	retStatus &= DL_TimerG_restoreConfiguration(Motor_A_INST, &gMotor_ABackup, false);
 	retStatus &= DL_TimerA_restoreConfiguration(Motor_B_INST, &gMotor_BBackup, false);
 	retStatus &= DL_TimerA_restoreConfiguration(Debug_Buzzer_INST, &gDebug_BuzzerBackup, false);
-	retStatus &= DL_TimerG_restoreConfiguration(Track_task_INST, &gTrack_taskBackup, false);
+	retStatus &= DL_TimerG_restoreConfiguration(PidTrack_Task_INST, &gPidTrack_TaskBackup, false);
 
     return retStatus;
 }
@@ -109,8 +110,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
     DL_TimerA_reset(Motor_B_INST);
     DL_TimerA_reset(Debug_Buzzer_INST);
     DL_TimerG_reset(Key_task_INST);
-    DL_TimerG_reset(Speedmeasurement_Task_INST);
-    DL_TimerG_reset(Track_task_INST);
+    DL_TimerG_reset(PidSpeed_Task_INST);
+    DL_TimerG_reset(PidTrack_Task_INST);
+    DL_TimerG_reset(PidAngle_Task_INST);
     DL_UART_Main_reset(Debug_UART_INST);
     DL_UART_Main_reset(Rx_yaw_INST);
 
@@ -121,8 +123,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
     DL_TimerA_enablePower(Motor_B_INST);
     DL_TimerA_enablePower(Debug_Buzzer_INST);
     DL_TimerG_enablePower(Key_task_INST);
-    DL_TimerG_enablePower(Speedmeasurement_Task_INST);
-    DL_TimerG_enablePower(Track_task_INST);
+    DL_TimerG_enablePower(PidSpeed_Task_INST);
+    DL_TimerG_enablePower(PidTrack_Task_INST);
+    DL_TimerG_enablePower(PidAngle_Task_INST);
     DL_UART_Main_enablePower(Debug_UART_INST);
     DL_UART_Main_enablePower(Rx_yaw_INST);
 
@@ -422,19 +425,19 @@ SYSCONFIG_WEAK void SYSCFG_DL_Debug_Buzzer_init(void) {
 
 
 /*
- * Timer clock configuration to be sourced by BUSCLK /  (40000000 Hz)
+ * Timer clock configuration to be sourced by BUSCLK /  (10000000 Hz)
  * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
- *   400000 Hz = 40000000 Hz / (1 * (99 + 1))
+ *   10000000 Hz = 10000000 Hz / (8 * (0 + 1))
  */
 static const DL_TimerG_ClockConfig gKey_taskClockConfig = {
     .clockSel    = DL_TIMER_CLOCK_BUSCLK,
-    .divideRatio = DL_TIMER_CLOCK_DIVIDE_1,
-    .prescale    = 99U,
+    .divideRatio = DL_TIMER_CLOCK_DIVIDE_8,
+    .prescale    = 0U,
 };
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * Key_task_INST_LOAD_VALUE = (20 ms * 400000 Hz) - 1
+ * Key_task_INST_LOAD_VALUE = (20 ms * 10000000 Hz) - 1
  */
 static const DL_TimerG_TimerConfig gKey_taskTimerConfig = {
     .period     = Key_task_INST_LOAD_VALUE,
@@ -464,7 +467,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_Key_task_init(void) {
  * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
  *   50000 Hz = 5000000 Hz / (8 * (99 + 1))
  */
-static const DL_TimerG_ClockConfig gSpeedmeasurement_TaskClockConfig = {
+static const DL_TimerG_ClockConfig gPidSpeed_TaskClockConfig = {
     .clockSel    = DL_TIMER_CLOCK_BUSCLK,
     .divideRatio = DL_TIMER_CLOCK_DIVIDE_8,
     .prescale    = 99U,
@@ -472,24 +475,24 @@ static const DL_TimerG_ClockConfig gSpeedmeasurement_TaskClockConfig = {
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * Speedmeasurement_Task_INST_LOAD_VALUE = (50 ms * 50000 Hz) - 1
+ * PidSpeed_Task_INST_LOAD_VALUE = (20 ms * 50000 Hz) - 1
  */
-static const DL_TimerG_TimerConfig gSpeedmeasurement_TaskTimerConfig = {
-    .period     = Speedmeasurement_Task_INST_LOAD_VALUE,
+static const DL_TimerG_TimerConfig gPidSpeed_TaskTimerConfig = {
+    .period     = PidSpeed_Task_INST_LOAD_VALUE,
     .timerMode  = DL_TIMER_TIMER_MODE_PERIODIC,
     .startTimer = DL_TIMER_START,
 };
 
-SYSCONFIG_WEAK void SYSCFG_DL_Speedmeasurement_Task_init(void) {
+SYSCONFIG_WEAK void SYSCFG_DL_PidSpeed_Task_init(void) {
 
-    DL_TimerG_setClockConfig(Speedmeasurement_Task_INST,
-        (DL_TimerG_ClockConfig *) &gSpeedmeasurement_TaskClockConfig);
+    DL_TimerG_setClockConfig(PidSpeed_Task_INST,
+        (DL_TimerG_ClockConfig *) &gPidSpeed_TaskClockConfig);
 
-    DL_TimerG_initTimerMode(Speedmeasurement_Task_INST,
-        (DL_TimerG_TimerConfig *) &gSpeedmeasurement_TaskTimerConfig);
-    DL_TimerG_enableInterrupt(Speedmeasurement_Task_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
-	NVIC_SetPriority(Speedmeasurement_Task_INST_INT_IRQN, 2);
-    DL_TimerG_enableClock(Speedmeasurement_Task_INST);
+    DL_TimerG_initTimerMode(PidSpeed_Task_INST,
+        (DL_TimerG_TimerConfig *) &gPidSpeed_TaskTimerConfig);
+    DL_TimerG_enableInterrupt(PidSpeed_Task_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
+	NVIC_SetPriority(PidSpeed_Task_INST_INT_IRQN, 1);
+    DL_TimerG_enableClock(PidSpeed_Task_INST);
 
 
 
@@ -500,34 +503,72 @@ SYSCONFIG_WEAK void SYSCFG_DL_Speedmeasurement_Task_init(void) {
 /*
  * Timer clock configuration to be sourced by BUSCLK /  (10000000 Hz)
  * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
- *   10000000 Hz = 10000000 Hz / (8 * (0 + 1))
+ *   1000000 Hz = 10000000 Hz / (8 * (9 + 1))
  */
-static const DL_TimerG_ClockConfig gTrack_taskClockConfig = {
+static const DL_TimerG_ClockConfig gPidTrack_TaskClockConfig = {
     .clockSel    = DL_TIMER_CLOCK_BUSCLK,
     .divideRatio = DL_TIMER_CLOCK_DIVIDE_8,
-    .prescale    = 0U,
+    .prescale    = 9U,
 };
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * Track_task_INST_LOAD_VALUE = (5 ms * 10000000 Hz) - 1
+ * PidTrack_Task_INST_LOAD_VALUE = (50 ms * 1000000 Hz) - 1
  */
-static const DL_TimerG_TimerConfig gTrack_taskTimerConfig = {
-    .period     = Track_task_INST_LOAD_VALUE,
+static const DL_TimerG_TimerConfig gPidTrack_TaskTimerConfig = {
+    .period     = PidTrack_Task_INST_LOAD_VALUE,
     .timerMode  = DL_TIMER_TIMER_MODE_PERIODIC,
     .startTimer = DL_TIMER_START,
 };
 
-SYSCONFIG_WEAK void SYSCFG_DL_Track_task_init(void) {
+SYSCONFIG_WEAK void SYSCFG_DL_PidTrack_Task_init(void) {
 
-    DL_TimerG_setClockConfig(Track_task_INST,
-        (DL_TimerG_ClockConfig *) &gTrack_taskClockConfig);
+    DL_TimerG_setClockConfig(PidTrack_Task_INST,
+        (DL_TimerG_ClockConfig *) &gPidTrack_TaskClockConfig);
 
-    DL_TimerG_initTimerMode(Track_task_INST,
-        (DL_TimerG_TimerConfig *) &gTrack_taskTimerConfig);
-    DL_TimerG_enableInterrupt(Track_task_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
-	NVIC_SetPriority(Track_task_INST_INT_IRQN, 3);
-    DL_TimerG_enableClock(Track_task_INST);
+    DL_TimerG_initTimerMode(PidTrack_Task_INST,
+        (DL_TimerG_TimerConfig *) &gPidTrack_TaskTimerConfig);
+    DL_TimerG_enableInterrupt(PidTrack_Task_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
+	NVIC_SetPriority(PidTrack_Task_INST_INT_IRQN, 1);
+    DL_TimerG_enableClock(PidTrack_Task_INST);
+
+
+
+
+
+}
+
+/*
+ * Timer clock configuration to be sourced by BUSCLK /  (5000000 Hz)
+ * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
+ *   500000 Hz = 5000000 Hz / (8 * (9 + 1))
+ */
+static const DL_TimerG_ClockConfig gPidAngle_TaskClockConfig = {
+    .clockSel    = DL_TIMER_CLOCK_BUSCLK,
+    .divideRatio = DL_TIMER_CLOCK_DIVIDE_8,
+    .prescale    = 9U,
+};
+
+/*
+ * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
+ * PidAngle_Task_INST_LOAD_VALUE = (10 ms * 500000 Hz) - 1
+ */
+static const DL_TimerG_TimerConfig gPidAngle_TaskTimerConfig = {
+    .period     = PidAngle_Task_INST_LOAD_VALUE,
+    .timerMode  = DL_TIMER_TIMER_MODE_PERIODIC,
+    .startTimer = DL_TIMER_START,
+};
+
+SYSCONFIG_WEAK void SYSCFG_DL_PidAngle_Task_init(void) {
+
+    DL_TimerG_setClockConfig(PidAngle_Task_INST,
+        (DL_TimerG_ClockConfig *) &gPidAngle_TaskClockConfig);
+
+    DL_TimerG_initTimerMode(PidAngle_Task_INST,
+        (DL_TimerG_TimerConfig *) &gPidAngle_TaskTimerConfig);
+    DL_TimerG_enableInterrupt(PidAngle_Task_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
+	NVIC_SetPriority(PidAngle_Task_INST_INT_IRQN, 1);
+    DL_TimerG_enableClock(PidAngle_Task_INST);
 
 
 

@@ -28,11 +28,11 @@ void BspEncoder_Init(void)
 
     }
 
-    // 清除定时器中断标志位
-    NVIC_ClearPendingIRQ(Speedmeasurement_Task_INST_INT_IRQN);
+    // // 清除定时器中断标志位
+    // NVIC_ClearPendingIRQ(Speedmeasurement_Task_INST_INT_IRQN);
 
-    // 使能定时器中断
-    NVIC_EnableIRQ(Speedmeasurement_Task_INST_INT_IRQN);
+    // // 使能定时器中断
+    // NVIC_EnableIRQ(Speedmeasurement_Task_INST_INT_IRQN);
     
 }
 
@@ -50,13 +50,15 @@ void BspEncoder_Init(void)
  *         电机转的圈数(rpm)        -->     单位rpm/s(转每秒)
  *         电机行驶路程(distance)   -->     单位m(米)
  *         电机的行驶速度(speed)    -->     单位cm/s(厘米每秒)
+ * 
+ * @note 左轮(E2)满转大约在 --> 89cm/s
  */
 void Claculate_MotorSpeed(void)
 {
     for(int i = 0; i < BSP_ENCODER_NUM; i++)
     {
         // 暂存转的圈数的变量
-        float rpm_tmpe = ( bsp_encoder_param[i].count / ( (13 * 2) * 28.0f ) ) / 0.05f;
+        float rpm_tmpe = ( bsp_encoder_param[i].count / ( (13 * 2) * 28.0f ) ) / 0.03f;
 
         // 记录转的圈数
         bsp_encoder_param[i].rpm += rpm_tmpe;
@@ -114,16 +116,16 @@ void GROUP1_IRQHandler(void)
  * @brief 定时器中断回调函数,每50ms进行速度计算
  * 
  */
-void Speedmeasurement_Task_INST_IRQHandler(void)
-{
-    switch (DL_Timer_getPendingInterrupt(Speedmeasurement_Task_INST))
-    {
-    case DL_TIMER_IIDX_ZERO:
-        Claculate_MotorSpeed();
-        DL_Timer_clearInterruptStatus(Speedmeasurement_Task_INST, DL_TIMER_IIDX_ZERO);
-        break;
+// void Speedmeasurement_Task_INST_IRQHandler(void)
+// {
+//     switch (DL_Timer_getPendingInterrupt(Speedmeasurement_Task_INST))
+//     {
+//     case DL_TIMER_IIDX_ZERO:
+//         Claculate_MotorSpeed();
+//         DL_Timer_clearInterruptStatus(Speedmeasurement_Task_INST, DL_TIMER_IIDX_ZERO);
+//         break;
     
-    default:
-        break;
-    }
-}
+//     default:
+//         break;
+//     }
+// }

@@ -1,4 +1,4 @@
-./objects/bsp_motor.o: ..\bsp\Src\bsp_motor.c ..\bsp\Inc\bsp_motor.h \
+./objects/pid.o: ..\Algorithm\Src\pid.c ..\Algorithm\Inc\pid.h \
   ..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
@@ -68,6 +68,6 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\Algorithm\Inc\pid.h \
-  ..\bsp\Inc\bsp_encoder.h ..\User\Inc\my_Ticks.h ..\bsp\Inc\bsp_uart.h \
+  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\bsp\Inc\bsp_encoder.h \
+  ..\User\Inc\my_Ticks.h ..\bsp\Inc\bsp_uart.h ..\bsp\Inc\bsp_motor.h \
   ..\bsp\Inc\bsp_track.h

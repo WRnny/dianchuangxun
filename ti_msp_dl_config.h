@@ -121,20 +121,25 @@ extern "C" {
 
 
 /* Defines for Key_task */
-#define Key_task_INST                                                    (TIMG8)
-#define Key_task_INST_IRQHandler                                TIMG8_IRQHandler
-#define Key_task_INST_INT_IRQN                                  (TIMG8_INT_IRQn)
-#define Key_task_INST_LOAD_VALUE                                         (7999U)
-/* Defines for Speedmeasurement_Task */
-#define Speedmeasurement_Task_INST                                       (TIMG0)
-#define Speedmeasurement_Task_INST_IRQHandler                        TIMG0_IRQHandler
-#define Speedmeasurement_Task_INST_INT_IRQN                        (TIMG0_INT_IRQn)
-#define Speedmeasurement_Task_INST_LOAD_VALUE                                 (2499U)
-/* Defines for Track_task */
-#define Track_task_INST                                                  (TIMG6)
-#define Track_task_INST_IRQHandler                              TIMG6_IRQHandler
-#define Track_task_INST_INT_IRQN                                (TIMG6_INT_IRQn)
-#define Track_task_INST_LOAD_VALUE                                      (49999U)
+#define Key_task_INST                                                   (TIMG12)
+#define Key_task_INST_IRQHandler                               TIMG12_IRQHandler
+#define Key_task_INST_INT_IRQN                                 (TIMG12_INT_IRQn)
+#define Key_task_INST_LOAD_VALUE                                       (199999U)
+/* Defines for PidSpeed_Task */
+#define PidSpeed_Task_INST                                               (TIMG8)
+#define PidSpeed_Task_INST_IRQHandler                           TIMG8_IRQHandler
+#define PidSpeed_Task_INST_INT_IRQN                             (TIMG8_INT_IRQn)
+#define PidSpeed_Task_INST_LOAD_VALUE                                     (999U)
+/* Defines for PidTrack_Task */
+#define PidTrack_Task_INST                                               (TIMG6)
+#define PidTrack_Task_INST_IRQHandler                           TIMG6_IRQHandler
+#define PidTrack_Task_INST_INT_IRQN                             (TIMG6_INT_IRQn)
+#define PidTrack_Task_INST_LOAD_VALUE                                   (49999U)
+/* Defines for PidAngle_Task */
+#define PidAngle_Task_INST                                               (TIMG0)
+#define PidAngle_Task_INST_IRQHandler                           TIMG0_IRQHandler
+#define PidAngle_Task_INST_INT_IRQN                             (TIMG0_INT_IRQn)
+#define PidAngle_Task_INST_LOAD_VALUE                                    (4999U)
 
 
 
@@ -275,8 +280,9 @@ void SYSCFG_DL_Motor_A_init(void);
 void SYSCFG_DL_Motor_B_init(void);
 void SYSCFG_DL_Debug_Buzzer_init(void);
 void SYSCFG_DL_Key_task_init(void);
-void SYSCFG_DL_Speedmeasurement_Task_init(void);
-void SYSCFG_DL_Track_task_init(void);
+void SYSCFG_DL_PidSpeed_Task_init(void);
+void SYSCFG_DL_PidTrack_Task_init(void);
+void SYSCFG_DL_PidAngle_Task_init(void);
 void SYSCFG_DL_Debug_UART_init(void);
 void SYSCFG_DL_Rx_yaw_init(void);
 

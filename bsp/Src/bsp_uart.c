@@ -30,6 +30,9 @@ extern "C"
 
 uint8_t rx_data;
 
+// 函数声明
+static void BspUART_ParsePIDCommand(char* cmd);
+
 /**
  * @brief 串口初始化
  *
@@ -51,7 +54,6 @@ void BspUART_Init(void)
 
 void Debug_UART_INST_IRQHandler(void)
 {
-
     switch (DL_UART_getPendingInterrupt(Debug_UART_INST))
     {
     case DL_UART_IIDX_RX:
@@ -62,7 +64,7 @@ void Debug_UART_INST_IRQHandler(void)
     }
 }
 
-static char uart0_rx_buf[128];      // 接收缓存区
+static char uart0_rx_buf[256];      // 接收缓存区
 static uint8_t uart0_rx_index = 0;  // 接收索引
 volatile float Yaw_received = 0.0f; // Yaw轴接收数据
 volatile uint8_t Yaw_RxFlag = 0;    // Yaw轴接收数据索引
@@ -85,8 +87,6 @@ void UART1_IRQHandler(void)
         // 立即清除中断标志，防止重复中断
         DL_UART_clearInterruptStatus(UART1, DL_UART_IIDX_RX);
 
-        // 调试：LED指示接收到数据
-        // DL_GPIO_togglePins(DEBUG_LED_PORT, DEBUG_LED_PIN);
 
         // 简化的接收逻辑
         if (RxData == '\r' || RxData == '\n')

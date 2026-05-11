@@ -29,7 +29,7 @@ extern volatile float last_coord;         // 上一时刻检测到的黑线位�
  * @brief 循迹部分初始化
  * 
  */
-void BspTarck_Init(void);
+// void BspTarck_Init(void);
 
 /**
  * @brief 循迹模块信息数据化过程

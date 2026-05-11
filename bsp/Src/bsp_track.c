@@ -24,14 +24,14 @@ volatile float last_coord = 4.0f;         // 上一时刻检测到的黑线位�
  * @brief 循迹部分初始化
  * 
  */
-void BspTarck_Init(void)
-{
-    // 清除循迹定时器中断标志位
-    NVIC_ClearPendingIRQ(Track_task_INST_INT_IRQN);
+// void BspTarck_Init(void)
+// {
+//     // 清除循迹定时器中断标志位
+//     NVIC_ClearPendingIRQ(Track_task_INST_INT_IRQN);
 
-    // 使能循迹中断
-    NVIC_EnableIRQ(Track_task_INST_INT_IRQN);
-}
+//     // 使能循迹中断
+//     NVIC_EnableIRQ(Track_task_INST_INT_IRQN);
+// }
 
 /**
  * @brief 循迹模块信息数据化过程
@@ -56,16 +56,16 @@ void Track_Task(void)
     else  {coord = pin_sum / (qty * 1.0f); last_coord = coord;}
 }
 
-void Track_task_INST_IRQHandler(void)
-{
-    switch (DL_Timer_getPendingInterrupt(Track_task_INST))
-    {
-    case DL_TIMER_IIDX_ZERO:
-        Track_Task();
-        DL_Timer_clearInterruptStatus(Track_task_INST, DL_TIMER_IIDX_ZERO);
-        break;
+// void Track_task_INST_IRQHandler(void)
+// {
+//     switch (DL_Timer_getPendingInterrupt(Track_task_INST))
+//     {
+//     case DL_TIMER_IIDX_ZERO:
+//         Track_Task();
+//         DL_Timer_clearInterruptStatus(Track_task_INST, DL_TIMER_IIDX_ZERO);
+//         break;
     
-    default:
-        break;
-    }
-}
+//     default:
+//         break;
+//     }
+// }

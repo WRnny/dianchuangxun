@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\User\Inc;..\;..\bsp\Inc;..\bsp\Inc</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\User\Inc;..\;..\bsp\Inc;..\Algorithm\Inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -453,6 +453,16 @@
               <FileName>bsp_track.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\bsp\Src\bsp_track.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Algorithm</GroupName>
+          <Files>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Algorithm\Src\pid.c</FilePath>
             </File>
           </Files>
         </Group>
