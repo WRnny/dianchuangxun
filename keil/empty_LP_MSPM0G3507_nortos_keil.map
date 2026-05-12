@@ -27,11 +27,7 @@ Section Cross References
     empty.o(.text.main) refers to pid.o(.text.AngleLop_Init) for AngleLop_Init
     empty.o(.text.main) refers to empty.o(.text.Turn_leftangle) for Turn_leftangle
     empty.o(.text.main) refers to empty.o(.text.LED_Test) for LED_Test
-    empty.o(.text.main) refers to bsp_uart.o(.bss.Yaw_received) for Yaw_received
     empty.o(.text.main) refers to empty.o(.bss.vofa_arry) for vofa_arry
-    empty.o(.text.main) refers to pid.o(.data.Angleloop_PIDParam) for Angleloop_PIDParam
-    empty.o(.text.main) refers to bsp_track.o(.bss.coord) for coord
-    empty.o(.text.main) refers to bsp_track.o(.data.last_coord) for last_coord
     empty.o(.ARM.exidx.text.main) refers to empty.o(.text.main) for [Anonymous Symbol]
     startup_mspm0g350x_uvision.o(RESET) refers to startup_mspm0g350x_uvision.o(STACK) for __initial_sp
     startup_mspm0g350x_uvision.o(RESET) refers to startup_mspm0g350x_uvision.o(.text) for Reset_Handler
@@ -1327,69 +1323,67 @@ Image Symbol Table
     __arm_cp.4_1                             0x00002d4c   Number         4  pid.o(.text.anglebase_init)
     __arm_cp.4_2                             0x00002d50   Number         4  pid.o(.text.anglebase_init)
     [Anonymous Symbol]                       0x00002d54   Section        0  pid.o(.text.diff_angle)
-    __arm_cp.13_1                            0x00002e0c   Number         4  pid.o(.text.diff_angle)
-    __arm_cp.13_2                            0x00002e10   Number         4  pid.o(.text.diff_angle)
-    __arm_cp.13_3                            0x00002e14   Number         4  pid.o(.text.diff_angle)
-    __arm_cp.13_4                            0x00002e18   Number         4  pid.o(.text.diff_angle)
-    __arm_cp.13_6                            0x00002e1c   Number         4  pid.o(.text.diff_angle)
-    fast_parse_float                         0x00002e21   Thumb Code    90  bsp_uart.o(.text.fast_parse_float)
-    [Anonymous Symbol]                       0x00002e20   Section        0  bsp_uart.o(.text.fast_parse_float)
-    [Anonymous Symbol]                       0x00002e7c   Section        0  empty.o(.text.main)
-    __arm_cp.4_0                             0x00002f04   Number         4  empty.o(.text.main)
-    __arm_cp.4_1                             0x00002f08   Number         4  empty.o(.text.main)
-    __arm_cp.4_2                             0x00002f0c   Number         4  empty.o(.text.main)
-    __arm_cp.4_3                             0x00002f10   Number         4  empty.o(.text.main)
-    __arm_cp.4_4                             0x00002f14   Number         4  empty.o(.text.main)
-    __arm_cp.4_5                             0x00002f18   Number         4  empty.o(.text.main)
-    __arm_cp.4_6                             0x00002f1c   Number         4  empty.o(.text.main)
-    __arm_cp.4_7                             0x00002f20   Number         4  empty.o(.text.main)
-    __arm_cp.4_8                             0x00002f24   Number         4  empty.o(.text.main)
-    __arm_cp.4_9                             0x00002f28   Number         4  empty.o(.text.main)
-    i.__ARM_clz                              0x00002f2c   Section        0  depilogue.o(i.__ARM_clz)
-    i.__scatterload_copy                     0x00002f60   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00002f70   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00002f78   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._is_digit                              0x00002f86   Section        0  scanf_fp.o(i._is_digit)
-    i.strtof                                 0x00002f94   Section        0  strtof.o(i.strtof)
-    .constdata                               0x00002fa8   Section       64  ctype_c.o(.constdata)
-    gDebug_BuzzerClockConfig                 0x00002fe8   Data           3  ti_msp_dl_config.o(.rodata.gDebug_BuzzerClockConfig)
-    [Anonymous Symbol]                       0x00002fe8   Section        0  ti_msp_dl_config.o(.rodata.gDebug_BuzzerClockConfig)
-    gDebug_BuzzerConfig                      0x00002fec   Data           8  ti_msp_dl_config.o(.rodata.gDebug_BuzzerConfig)
-    [Anonymous Symbol]                       0x00002fec   Section        0  ti_msp_dl_config.o(.rodata.gDebug_BuzzerConfig)
-    gDebug_UARTClockConfig                   0x00002ff4   Data           2  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
-    [Anonymous Symbol]                       0x00002ff4   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
-    gDebug_UARTConfig                        0x00002ff6   Data          10  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
-    [Anonymous Symbol]                       0x00002ff6   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
-    gKey_taskClockConfig                     0x00003000   Data           3  ti_msp_dl_config.o(.rodata.gKey_taskClockConfig)
-    [Anonymous Symbol]                       0x00003000   Section        0  ti_msp_dl_config.o(.rodata.gKey_taskClockConfig)
-    gKey_taskTimerConfig                     0x00003004   Data          20  ti_msp_dl_config.o(.rodata.gKey_taskTimerConfig)
-    [Anonymous Symbol]                       0x00003004   Section        0  ti_msp_dl_config.o(.rodata.gKey_taskTimerConfig)
-    gMotor_AClockConfig                      0x00003018   Data           3  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
-    [Anonymous Symbol]                       0x00003018   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
-    gMotor_AConfig                           0x0000301c   Data           8  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
-    [Anonymous Symbol]                       0x0000301c   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
-    gMotor_BClockConfig                      0x00003024   Data           3  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
-    [Anonymous Symbol]                       0x00003024   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
-    gMotor_BConfig                           0x00003028   Data           8  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
-    [Anonymous Symbol]                       0x00003028   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
-    gPidAngle_TaskClockConfig                0x00003030   Data           3  ti_msp_dl_config.o(.rodata.gPidAngle_TaskClockConfig)
-    [Anonymous Symbol]                       0x00003030   Section        0  ti_msp_dl_config.o(.rodata.gPidAngle_TaskClockConfig)
-    gPidAngle_TaskTimerConfig                0x00003034   Data          20  ti_msp_dl_config.o(.rodata.gPidAngle_TaskTimerConfig)
-    [Anonymous Symbol]                       0x00003034   Section        0  ti_msp_dl_config.o(.rodata.gPidAngle_TaskTimerConfig)
-    gPidSpeed_TaskClockConfig                0x00003048   Data           3  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskClockConfig)
-    [Anonymous Symbol]                       0x00003048   Section        0  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskClockConfig)
-    gPidSpeed_TaskTimerConfig                0x0000304c   Data          20  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskTimerConfig)
-    [Anonymous Symbol]                       0x0000304c   Section        0  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskTimerConfig)
-    gPidTrack_TaskClockConfig                0x00003060   Data           3  ti_msp_dl_config.o(.rodata.gPidTrack_TaskClockConfig)
-    [Anonymous Symbol]                       0x00003060   Section        0  ti_msp_dl_config.o(.rodata.gPidTrack_TaskClockConfig)
-    gPidTrack_TaskTimerConfig                0x00003064   Data          20  ti_msp_dl_config.o(.rodata.gPidTrack_TaskTimerConfig)
-    [Anonymous Symbol]                       0x00003064   Section        0  ti_msp_dl_config.o(.rodata.gPidTrack_TaskTimerConfig)
-    gRx_yawClockConfig                       0x00003078   Data           2  ti_msp_dl_config.o(.rodata.gRx_yawClockConfig)
-    [Anonymous Symbol]                       0x00003078   Section        0  ti_msp_dl_config.o(.rodata.gRx_yawClockConfig)
-    gRx_yawConfig                            0x0000307a   Data          10  ti_msp_dl_config.o(.rodata.gRx_yawConfig)
-    [Anonymous Symbol]                       0x0000307a   Section        0  ti_msp_dl_config.o(.rodata.gRx_yawConfig)
-    gSYSPLLConfig                            0x00003084   Data          40  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
-    [Anonymous Symbol]                       0x00003084   Section        0  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
+    __arm_cp.13_0                            0x00002e0c   Number         4  pid.o(.text.diff_angle)
+    __arm_cp.13_1                            0x00002e10   Number         4  pid.o(.text.diff_angle)
+    __arm_cp.13_2                            0x00002e14   Number         4  pid.o(.text.diff_angle)
+    __arm_cp.13_3                            0x00002e18   Number         4  pid.o(.text.diff_angle)
+    __arm_cp.13_4                            0x00002e1c   Number         4  pid.o(.text.diff_angle)
+    __arm_cp.13_5                            0x00002e20   Number         4  pid.o(.text.diff_angle)
+    __arm_cp.13_6                            0x00002e24   Number         4  pid.o(.text.diff_angle)
+    fast_parse_float                         0x00002e29   Thumb Code    90  bsp_uart.o(.text.fast_parse_float)
+    [Anonymous Symbol]                       0x00002e28   Section        0  bsp_uart.o(.text.fast_parse_float)
+    [Anonymous Symbol]                       0x00002e84   Section        0  empty.o(.text.main)
+    __arm_cp.4_0                             0x00002ef4   Number         4  empty.o(.text.main)
+    __arm_cp.4_1                             0x00002ef8   Number         4  empty.o(.text.main)
+    __arm_cp.4_2                             0x00002efc   Number         4  empty.o(.text.main)
+    __arm_cp.4_3                             0x00002f00   Number         4  empty.o(.text.main)
+    __arm_cp.4_4                             0x00002f04   Number         4  empty.o(.text.main)
+    __arm_cp.4_5                             0x00002f08   Number         4  empty.o(.text.main)
+    i.__ARM_clz                              0x00002f0c   Section        0  depilogue.o(i.__ARM_clz)
+    i.__scatterload_copy                     0x00002f40   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00002f50   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00002f58   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._is_digit                              0x00002f66   Section        0  scanf_fp.o(i._is_digit)
+    i.strtof                                 0x00002f74   Section        0  strtof.o(i.strtof)
+    .constdata                               0x00002f88   Section       64  ctype_c.o(.constdata)
+    gDebug_BuzzerClockConfig                 0x00002fc8   Data           3  ti_msp_dl_config.o(.rodata.gDebug_BuzzerClockConfig)
+    [Anonymous Symbol]                       0x00002fc8   Section        0  ti_msp_dl_config.o(.rodata.gDebug_BuzzerClockConfig)
+    gDebug_BuzzerConfig                      0x00002fcc   Data           8  ti_msp_dl_config.o(.rodata.gDebug_BuzzerConfig)
+    [Anonymous Symbol]                       0x00002fcc   Section        0  ti_msp_dl_config.o(.rodata.gDebug_BuzzerConfig)
+    gDebug_UARTClockConfig                   0x00002fd4   Data           2  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
+    [Anonymous Symbol]                       0x00002fd4   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTClockConfig)
+    gDebug_UARTConfig                        0x00002fd6   Data          10  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
+    [Anonymous Symbol]                       0x00002fd6   Section        0  ti_msp_dl_config.o(.rodata.gDebug_UARTConfig)
+    gKey_taskClockConfig                     0x00002fe0   Data           3  ti_msp_dl_config.o(.rodata.gKey_taskClockConfig)
+    [Anonymous Symbol]                       0x00002fe0   Section        0  ti_msp_dl_config.o(.rodata.gKey_taskClockConfig)
+    gKey_taskTimerConfig                     0x00002fe4   Data          20  ti_msp_dl_config.o(.rodata.gKey_taskTimerConfig)
+    [Anonymous Symbol]                       0x00002fe4   Section        0  ti_msp_dl_config.o(.rodata.gKey_taskTimerConfig)
+    gMotor_AClockConfig                      0x00002ff8   Data           3  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
+    [Anonymous Symbol]                       0x00002ff8   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AClockConfig)
+    gMotor_AConfig                           0x00002ffc   Data           8  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
+    [Anonymous Symbol]                       0x00002ffc   Section        0  ti_msp_dl_config.o(.rodata.gMotor_AConfig)
+    gMotor_BClockConfig                      0x00003004   Data           3  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
+    [Anonymous Symbol]                       0x00003004   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BClockConfig)
+    gMotor_BConfig                           0x00003008   Data           8  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
+    [Anonymous Symbol]                       0x00003008   Section        0  ti_msp_dl_config.o(.rodata.gMotor_BConfig)
+    gPidAngle_TaskClockConfig                0x00003010   Data           3  ti_msp_dl_config.o(.rodata.gPidAngle_TaskClockConfig)
+    [Anonymous Symbol]                       0x00003010   Section        0  ti_msp_dl_config.o(.rodata.gPidAngle_TaskClockConfig)
+    gPidAngle_TaskTimerConfig                0x00003014   Data          20  ti_msp_dl_config.o(.rodata.gPidAngle_TaskTimerConfig)
+    [Anonymous Symbol]                       0x00003014   Section        0  ti_msp_dl_config.o(.rodata.gPidAngle_TaskTimerConfig)
+    gPidSpeed_TaskClockConfig                0x00003028   Data           3  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskClockConfig)
+    [Anonymous Symbol]                       0x00003028   Section        0  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskClockConfig)
+    gPidSpeed_TaskTimerConfig                0x0000302c   Data          20  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskTimerConfig)
+    [Anonymous Symbol]                       0x0000302c   Section        0  ti_msp_dl_config.o(.rodata.gPidSpeed_TaskTimerConfig)
+    gPidTrack_TaskClockConfig                0x00003040   Data           3  ti_msp_dl_config.o(.rodata.gPidTrack_TaskClockConfig)
+    [Anonymous Symbol]                       0x00003040   Section        0  ti_msp_dl_config.o(.rodata.gPidTrack_TaskClockConfig)
+    gPidTrack_TaskTimerConfig                0x00003044   Data          20  ti_msp_dl_config.o(.rodata.gPidTrack_TaskTimerConfig)
+    [Anonymous Symbol]                       0x00003044   Section        0  ti_msp_dl_config.o(.rodata.gPidTrack_TaskTimerConfig)
+    gRx_yawClockConfig                       0x00003058   Data           2  ti_msp_dl_config.o(.rodata.gRx_yawClockConfig)
+    [Anonymous Symbol]                       0x00003058   Section        0  ti_msp_dl_config.o(.rodata.gRx_yawClockConfig)
+    gRx_yawConfig                            0x0000305a   Data          10  ti_msp_dl_config.o(.rodata.gRx_yawConfig)
+    [Anonymous Symbol]                       0x0000305a   Section        0  ti_msp_dl_config.o(.rodata.gRx_yawConfig)
+    gSYSPLLConfig                            0x00003064   Data          40  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
+    [Anonymous Symbol]                       0x00003064   Section        0  ti_msp_dl_config.o(.rodata.gSYSPLLConfig)
     uart0_rx_buf                             0x20200510   Data         256  bsp_uart.o(.bss.uart0_rx_buf)
     [Anonymous Symbol]                       0x20200510   Section        0  bsp_uart.o(.bss.uart0_rx_buf)
     uart0_rx_index                           0x20200610   Data           1  bsp_uart.o(.bss.uart0_rx_index)
@@ -1540,16 +1534,16 @@ Image Symbol Table
     WR_KeyControlTask                        0x00002b05   Thumb Code    46  bsp_key.o(.text.WR_KeyControlTask)
     anglebase_init                           0x00002d01   Thumb Code    76  pid.o(.text.anglebase_init)
     diff_angle                               0x00002d55   Thumb Code   184  pid.o(.text.diff_angle)
-    main                                     0x00002e7d   Thumb Code   136  empty.o(.text.main)
-    __ARM_clz                                0x00002f2d   Thumb Code    46  depilogue.o(i.__ARM_clz)
-    __scatterload_copy                       0x00002f61   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00002f71   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00002f79   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    _is_digit                                0x00002f87   Thumb Code    14  scanf_fp.o(i._is_digit)
-    strtof                                   0x00002f95   Thumb Code    20  strtof.o(i.strtof)
-    __ctype_categories                       0x00002fa8   Data          64  ctype_c.o(.constdata)
-    Region$$Table$$Base                      0x000030ac   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000030cc   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x00002e85   Thumb Code   112  empty.o(.text.main)
+    __ARM_clz                                0x00002f0d   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __scatterload_copy                       0x00002f41   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00002f51   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00002f59   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    _is_digit                                0x00002f67   Thumb Code    14  scanf_fp.o(i._is_digit)
+    strtof                                   0x00002f75   Thumb Code    20  strtof.o(i.strtof)
+    __ctype_categories                       0x00002f88   Data          64  ctype_c.o(.constdata)
+    Region$$Table$$Base                      0x0000308c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000030ac   Number         0  anon$$obj.o(Region$$Table)
     Angleloop_PIDItem                        0x20200000   Data          32  pid.o(.data.Angleloop_PIDItem)
     Angleloop_PIDParam                       0x20200020   Data          16  pid.o(.data.Angleloop_PIDParam)
     SpeedloopL_PIDParam                      0x20200030   Data          16  pid.o(.data.SpeedloopL_PIDParam)
@@ -1592,9 +1586,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00003288, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00003158])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00003268, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00003138])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000030cc, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000030ac, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1764,50 +1758,50 @@ Memory Map of the image
     0x00002c50   0x00002c50   0x0000002c   Code   RO          328    .text.__NVIC_EnableIRQ  pid.o
     0x00002c7c   0x00002c7c   0x00000084   Code   RO          113    .text.__NVIC_SetPriority  ti_msp_dl_config.o
     0x00002d00   0x00002d00   0x00000054   Code   RO          332    .text.anglebase_init  pid.o
-    0x00002d54   0x00002d54   0x000000cc   Code   RO          350    .text.diff_angle    pid.o
-    0x00002e20   0x00002e20   0x0000005a   Code   RO          228    .text.fast_parse_float  bsp_uart.o
-    0x00002e7a   0x00002e7a   0x00000002   PAD
-    0x00002e7c   0x00002e7c   0x000000b0   Code   RO           10    .text.main          empty.o
-    0x00002f2c   0x00002f2c   0x0000002e   Code   RO          630    i.__ARM_clz         mf_p.l(depilogue.o)
-    0x00002f5a   0x00002f5a   0x00000006   PAD
-    0x00002f60   0x00002f60   0x0000000e   Code   RO          659    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00002f6e   0x00002f6e   0x00000002   PAD
-    0x00002f70   0x00002f70   0x00000002   Code   RO          660    i.__scatterload_null  mc_p.l(handlers.o)
-    0x00002f72   0x00002f72   0x00000006   PAD
-    0x00002f78   0x00002f78   0x0000000e   Code   RO          661    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x00002f86   0x00002f86   0x0000000e   Code   RO          644    i._is_digit         mc_p.l(scanf_fp.o)
-    0x00002f94   0x00002f94   0x00000014   Code   RO          557    i.strtof            m_ps.l(strtof.o)
-    0x00002fa8   0x00002fa8   0x00000040   Data   RO          651    .constdata          mc_p.l(ctype_c.o)
-    0x00002fe8   0x00002fe8   0x00000003   Data   RO          144    .rodata.gDebug_BuzzerClockConfig  ti_msp_dl_config.o
-    0x00002feb   0x00002feb   0x00000001   PAD
-    0x00002fec   0x00002fec   0x00000008   Data   RO          145    .rodata.gDebug_BuzzerConfig  ti_msp_dl_config.o
-    0x00002ff4   0x00002ff4   0x00000002   Data   RO          154    .rodata.gDebug_UARTClockConfig  ti_msp_dl_config.o
-    0x00002ff6   0x00002ff6   0x0000000a   Data   RO          155    .rodata.gDebug_UARTConfig  ti_msp_dl_config.o
-    0x00003000   0x00003000   0x00000003   Data   RO          146    .rodata.gKey_taskClockConfig  ti_msp_dl_config.o
-    0x00003003   0x00003003   0x00000001   PAD
-    0x00003004   0x00003004   0x00000014   Data   RO          147    .rodata.gKey_taskTimerConfig  ti_msp_dl_config.o
-    0x00003018   0x00003018   0x00000003   Data   RO          140    .rodata.gMotor_AClockConfig  ti_msp_dl_config.o
-    0x0000301b   0x0000301b   0x00000001   PAD
-    0x0000301c   0x0000301c   0x00000008   Data   RO          141    .rodata.gMotor_AConfig  ti_msp_dl_config.o
-    0x00003024   0x00003024   0x00000003   Data   RO          142    .rodata.gMotor_BClockConfig  ti_msp_dl_config.o
-    0x00003027   0x00003027   0x00000001   PAD
-    0x00003028   0x00003028   0x00000008   Data   RO          143    .rodata.gMotor_BConfig  ti_msp_dl_config.o
-    0x00003030   0x00003030   0x00000003   Data   RO          152    .rodata.gPidAngle_TaskClockConfig  ti_msp_dl_config.o
-    0x00003033   0x00003033   0x00000001   PAD
-    0x00003034   0x00003034   0x00000014   Data   RO          153    .rodata.gPidAngle_TaskTimerConfig  ti_msp_dl_config.o
-    0x00003048   0x00003048   0x00000003   Data   RO          148    .rodata.gPidSpeed_TaskClockConfig  ti_msp_dl_config.o
-    0x0000304b   0x0000304b   0x00000001   PAD
-    0x0000304c   0x0000304c   0x00000014   Data   RO          149    .rodata.gPidSpeed_TaskTimerConfig  ti_msp_dl_config.o
-    0x00003060   0x00003060   0x00000003   Data   RO          150    .rodata.gPidTrack_TaskClockConfig  ti_msp_dl_config.o
-    0x00003063   0x00003063   0x00000001   PAD
-    0x00003064   0x00003064   0x00000014   Data   RO          151    .rodata.gPidTrack_TaskTimerConfig  ti_msp_dl_config.o
-    0x00003078   0x00003078   0x00000002   Data   RO          156    .rodata.gRx_yawClockConfig  ti_msp_dl_config.o
-    0x0000307a   0x0000307a   0x0000000a   Data   RO          157    .rodata.gRx_yawConfig  ti_msp_dl_config.o
-    0x00003084   0x00003084   0x00000028   Data   RO          139    .rodata.gSYSPLLConfig  ti_msp_dl_config.o
-    0x000030ac   0x000030ac   0x00000020   Data   RO          658    Region$$Table       anon$$obj.o
+    0x00002d54   0x00002d54   0x000000d4   Code   RO          350    .text.diff_angle    pid.o
+    0x00002e28   0x00002e28   0x0000005a   Code   RO          228    .text.fast_parse_float  bsp_uart.o
+    0x00002e82   0x00002e82   0x00000002   PAD
+    0x00002e84   0x00002e84   0x00000088   Code   RO           10    .text.main          empty.o
+    0x00002f0c   0x00002f0c   0x0000002e   Code   RO          630    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x00002f3a   0x00002f3a   0x00000006   PAD
+    0x00002f40   0x00002f40   0x0000000e   Code   RO          659    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00002f4e   0x00002f4e   0x00000002   PAD
+    0x00002f50   0x00002f50   0x00000002   Code   RO          660    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00002f52   0x00002f52   0x00000006   PAD
+    0x00002f58   0x00002f58   0x0000000e   Code   RO          661    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00002f66   0x00002f66   0x0000000e   Code   RO          644    i._is_digit         mc_p.l(scanf_fp.o)
+    0x00002f74   0x00002f74   0x00000014   Code   RO          557    i.strtof            m_ps.l(strtof.o)
+    0x00002f88   0x00002f88   0x00000040   Data   RO          651    .constdata          mc_p.l(ctype_c.o)
+    0x00002fc8   0x00002fc8   0x00000003   Data   RO          144    .rodata.gDebug_BuzzerClockConfig  ti_msp_dl_config.o
+    0x00002fcb   0x00002fcb   0x00000001   PAD
+    0x00002fcc   0x00002fcc   0x00000008   Data   RO          145    .rodata.gDebug_BuzzerConfig  ti_msp_dl_config.o
+    0x00002fd4   0x00002fd4   0x00000002   Data   RO          154    .rodata.gDebug_UARTClockConfig  ti_msp_dl_config.o
+    0x00002fd6   0x00002fd6   0x0000000a   Data   RO          155    .rodata.gDebug_UARTConfig  ti_msp_dl_config.o
+    0x00002fe0   0x00002fe0   0x00000003   Data   RO          146    .rodata.gKey_taskClockConfig  ti_msp_dl_config.o
+    0x00002fe3   0x00002fe3   0x00000001   PAD
+    0x00002fe4   0x00002fe4   0x00000014   Data   RO          147    .rodata.gKey_taskTimerConfig  ti_msp_dl_config.o
+    0x00002ff8   0x00002ff8   0x00000003   Data   RO          140    .rodata.gMotor_AClockConfig  ti_msp_dl_config.o
+    0x00002ffb   0x00002ffb   0x00000001   PAD
+    0x00002ffc   0x00002ffc   0x00000008   Data   RO          141    .rodata.gMotor_AConfig  ti_msp_dl_config.o
+    0x00003004   0x00003004   0x00000003   Data   RO          142    .rodata.gMotor_BClockConfig  ti_msp_dl_config.o
+    0x00003007   0x00003007   0x00000001   PAD
+    0x00003008   0x00003008   0x00000008   Data   RO          143    .rodata.gMotor_BConfig  ti_msp_dl_config.o
+    0x00003010   0x00003010   0x00000003   Data   RO          152    .rodata.gPidAngle_TaskClockConfig  ti_msp_dl_config.o
+    0x00003013   0x00003013   0x00000001   PAD
+    0x00003014   0x00003014   0x00000014   Data   RO          153    .rodata.gPidAngle_TaskTimerConfig  ti_msp_dl_config.o
+    0x00003028   0x00003028   0x00000003   Data   RO          148    .rodata.gPidSpeed_TaskClockConfig  ti_msp_dl_config.o
+    0x0000302b   0x0000302b   0x00000001   PAD
+    0x0000302c   0x0000302c   0x00000014   Data   RO          149    .rodata.gPidSpeed_TaskTimerConfig  ti_msp_dl_config.o
+    0x00003040   0x00003040   0x00000003   Data   RO          150    .rodata.gPidTrack_TaskClockConfig  ti_msp_dl_config.o
+    0x00003043   0x00003043   0x00000001   PAD
+    0x00003044   0x00003044   0x00000014   Data   RO          151    .rodata.gPidTrack_TaskTimerConfig  ti_msp_dl_config.o
+    0x00003058   0x00003058   0x00000002   Data   RO          156    .rodata.gRx_yawClockConfig  ti_msp_dl_config.o
+    0x0000305a   0x0000305a   0x0000000a   Data   RO          157    .rodata.gRx_yawConfig  ti_msp_dl_config.o
+    0x00003064   0x00003064   0x00000028   Data   RO          139    .rodata.gSYSPLLConfig  ti_msp_dl_config.o
+    0x0000308c   0x0000308c   0x00000020   Data   RO          658    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x20200000, Load base: 0x000030d0, Size: 0x00001668, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000088])
+    Execution Region RW_IRAM2 (Exec base: 0x20200000, Load base: 0x000030b0, Size: 0x00001668, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000088])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1880,14 +1874,14 @@ Image component sizes
        668         28          0         80          0       6859   bsp_motor.o
        222         20          0         60         36       3840   bsp_track.o
        638         32          0          0        263       7219   bsp_uart.o
-       252         56          0          0         80       4147   empty.o
+       212         40          0          0         80       4115   empty.o
         90          4          0          0          4        986   my_ticks.o
-      1612        128          0        104        112       8664   pid.o
+      1620        136          0        104        112       8664   pid.o
         20          4        192          0       4096        620   startup_mspm0g350x_uvision.o
       2760        276        189          0        696      28778   ti_msp_dl_config.o
 
     ----------------------------------------------------------------------
-      7774        604        420        436       5300      76527   Object Totals
+      7742        596        420        436       5300      76495   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         18          0          7          0         13          0   (incl. Padding)
 
@@ -1964,15 +1958,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     12008        900        484        436       5300     147099   Grand Totals
-     12008        900        484        136       5300     147099   ELF Image Totals (compressed)
-     12008        900        484        136          0          0   ROM Totals
+     11976        892        484        436       5300     147067   Grand Totals
+     11976        892        484        136       5300     147067   ELF Image Totals (compressed)
+     11976        892        484        136          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                12492 (  12.20kB)
+    Total RO  Size (Code + RO Data)                12460 (  12.17kB)
     Total RW  Size (RW Data + ZI Data)              5736 (   5.60kB)
-    Total ROM Size (Code + RO Data + RW Data)      12628 (  12.33kB)
+    Total ROM Size (Code + RO Data + RW Data)      12596 (  12.30kB)
 
 ==============================================================================
 
