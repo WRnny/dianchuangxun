@@ -3,6 +3,7 @@
 ".\objects\startup_mspm0g350x_uvision.o"
 ".\objects\ti_msp_dl_config.o"
 ".\objects\my_ticks.o"
+".\objects\task.o"
 ".\objects\bsp_key.o"
 ".\objects\bsp_uart.o"
 ".\objects\bsp_motor.o"

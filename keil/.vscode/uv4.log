@@ -1,7 +1,12 @@
-Load "d:\\ti\\mspm0_sdk_2_04_00_06\\dianchuangxun\\keil\\Objects\\empty_LP_MSPM0G3507_nortos_keil.axf" 
-Info: Debug/System power-up request sent 
-Info: executing SWD power up 
-Info: Current state of access point is: 80027 
-Info: Current state of access point is: 79002f 
-Erase Done.Programming Done.Verify OK.Application running ...
-Flash Load finished at 19:20:37
+*** Using Compiler 'V6.24', folder: 'D:\keil5\ARM\ARMCLANG\Bin'
+Build target 'empty_LP_MSPM0G3507_nortos_keil'
+Before Build - User command #1: D:\ti\mspm0_sdk_2_04_00_06\tools\keil\syscfg.bat
+Using Sysconfig Tool from "D:\ti\sysconfig_1.23.1\sysconfig_cli.bat"
+"Update the file located at <sdk path>/tools/keil/syscfg.bat to use a different version"
+此时不应有 SET。
+compiling bsp_key.c...
+linking...
+Program Size: Code=12008 RO-data=484 RW-data=436 ZI-data=5300  
+FromELF: creating hex file...
+".\Objects\empty_LP_MSPM0G3507_nortos_keil.axf" - 0 Error(s), 0 Warning(s).
+Build Time Elapsed:  00:00:01

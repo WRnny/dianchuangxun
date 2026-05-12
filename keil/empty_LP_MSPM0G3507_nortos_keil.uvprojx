@@ -419,6 +419,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Src\my_Ticks.c</FilePath>
             </File>
+            <File>
+              <FileName>Task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Src\Task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

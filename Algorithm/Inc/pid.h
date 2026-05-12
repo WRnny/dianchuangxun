@@ -9,6 +9,7 @@
 #include "math.h"
 
 #define D_TERM_FILTER 0.2f // 滤波系数
+#define ABS(x) x > 0 ? x : -x
 
 typedef struct{
     float Kp;
@@ -31,6 +32,8 @@ typedef struct{
 
 extern PID_Param SpeedloopL_PIDParam;
 extern PID_Param SpeedloopR_PIDParam;
+extern PID_Param Angleloop_PIDParam;
+
 
 /**
  * @brief 开始速度环
@@ -43,6 +46,19 @@ void SpeedLop_Init(void);
  * 
  */
 void TrackLop_Init(void);
+
+/**
+ * @brief 上电初始化的时候获取基本角度值
+ * 
+ * @note 不要动小车
+ */
+void anglebase_init(void);
+
+/**
+ * @brief 开启角度环
+ * 
+ */
+void AngleLop_Init(void);
 
 /**
  * @brief PID计算逻辑

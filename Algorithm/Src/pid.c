@@ -27,6 +27,62 @@ void TrackLop_Init(void)
 }
 
 /**
+ * @brief 上电初始化的时候获取基本角度值
+ * 
+ * @note 不要动小车
+ */
+void anglebase_init(void)
+{
+    // 采集一秒内的角度平均值
+    for(int i = 0; i < 500; i++)
+    {
+        Angleloop_PIDParam.target += Yaw_received;
+        WR_Delay(1);
+    }
+    Angleloop_PIDParam.target = Angleloop_PIDParam.target / 500.0f;
+}
+
+/**
+ * @brief 开启角度环
+ * 
+ */
+void AngleLop_Init(void)
+{
+    // 清除角度环定时器中断标志位
+    NVIC_ClearPendingIRQ(PidAngle_Task_INST_INT_IRQN);
+
+    // 使能角度环定时器中断
+    NVIC_EnableIRQ(PidAngle_Task_INST_INT_IRQN);
+}
+
+/**
+ * @brief 关闭循迹位置环
+ * 
+ */
+void TrackLop_DeInit(void)
+{
+    // 清除循迹位置环定时器中断标志位
+    NVIC_ClearPendingIRQ(PidTrack_Task_INST_INT_IRQN);
+
+    // 失能循迹位置环定时器中断
+    NVIC_DisableIRQ(PidTrack_Task_INST_INT_IRQN);
+}
+
+
+/**
+ * @brief 关闭角度环
+ * 
+ */
+void AngleLop_DeInit(void)
+{
+    // 清除角度环定时器中断标志位
+    NVIC_ClearPendingIRQ(PidAngle_Task_INST_INT_IRQN);
+
+    // 失能角度环定时器中断
+    NVIC_DisableIRQ(PidAngle_Task_INST_INT_IRQN);
+}
+
+/**
  * @brief PID计算逻辑
  *
  * @param pid_param     PID基本成员Ki,Kp,Kd,target
@@ -150,7 +206,7 @@ void PidSpeed_Task_INST_IRQHandler(void)
 }
 
 PID_Param Trackloop_PIDParam = {
-    .Kp = 7.8f,
+    .Kp = 7.88f,
     .Ki = 0.0f,
     .Kd = 0.0f,
     .target = 4.0f 
@@ -164,11 +220,11 @@ PID_Item Trackloop_PIDItem = {
     .ZERO = 0.0f
 };
 
-int base_trackspeed = 27;
+int base_trackspeed = 35;
 volatile float trackloop_output = 0.0f;
 
 /**
- * @brief 循迹位置环
+ * @brief 循迹位置环定时器中断50ms
  * 
  */
 void PidTrack_Task_INST_IRQHandler(void)
@@ -176,6 +232,8 @@ void PidTrack_Task_INST_IRQHandler(void)
     switch (DL_Timer_getPendingInterrupt(PidTrack_Task_INST))
     {
         case DL_TIMER_IIDX_ZERO:
+
+            Track_Task();
 
             trackloop_output = Pid_Calculate(&Trackloop_PIDParam, &Trackloop_PIDItem, coord, 0.05);
 
@@ -189,8 +247,43 @@ void PidTrack_Task_INST_IRQHandler(void)
     }
 }
 
+
+PID_Param Angleloop_PIDParam = {
+    .Kp = 0.8f,
+    .Ki = 0.0f,
+    .Kd = 0.0f,
+    .target = 0.0f 
+};
+
+PID_Item Angleloop_PIDItem = {
+    .integral_max = 0.0f,
+    .output_max = 0.0f,
+    .output_min = 0.0f,
+
+    .ZERO = 1.0f
+};
+
+int base_Anglespeed = 35;
+volatile float angleloop_output = 0.0f;
+
 /**
- * @brief 角度环
+ * @brief 将角度误差转换成最短路径
+ * 
+ */
+void diff_angle(void)
+{
+    Angleloop_PIDParam.target = Angleloop_PIDParam.target > 180.0f ? Angleloop_PIDParam.target - 360.0f :
+                                Angleloop_PIDParam.target < -180.0f ? Angleloop_PIDParam.target +360.0f :
+                                Angleloop_PIDParam.target;
+
+    Angleloop_PIDItem.error = Angleloop_PIDParam.target - Yaw_received;
+    Angleloop_PIDItem.error = Angleloop_PIDItem.error >= 180.0f ? Angleloop_PIDItem.error - 360.0f : 
+                              Angleloop_PIDItem.error <= -180.0f ? Angleloop_PIDItem.error + 360.0f :
+                              Angleloop_PIDItem.error;
+}
+
+/**
+ * @brief 角度环定时器中断50ms
  * 
  */
 void PidAngle_Task_INST_IRQHandler(void)
@@ -199,6 +292,37 @@ void PidAngle_Task_INST_IRQHandler(void)
     {
         case DL_TIMER_IIDX_ZERO:
 
-        
+            // angleloop_output = Pid_Calculate(&Angleloop_PIDParam, &Angleloop_PIDItem, Yaw_received, 0.05);
+
+            /**
+             * @brief 角度环PID有个问题就是陀螺仪的量程是(0 ~ 180、-180 ~ 0)
+             *        当我目标角度突然从正值变为负值按照PID的逻辑他会给反极性现象就是他自己主动转一圈
+             *        这个是当前情况不想用到的效果所以我打算换个思路
+             * 
+             * @note 我往PID传进去的参数是当前角度和目标角度相差的值
+             *       举个例子:
+             *                当前角度为150°目标角度为-150°
+             *                按照PID的逻辑他会让小车从150° ~ 0°，之后从0° ~ -150°
+             *                但是实际上我只需要让小车从150° ~ (-180°)180°， 再从(-180°)180° ~ -150°
+             *                这样很好的可以看出他的变化范围: 
+             *                                            第一种常规PID变化了300°
+             *                                            第二种特殊PID变化了60°
+             *       调节效果再非特殊要求下肯定是第二种的好，所以我们要想一个PID的形式实现第二种的效果
+             *       
+             * @note 其实还有一种解决方法就是把-180° ~ 180°的角度环映射到0° ~ 360°
+             * 
+             */
+
+            // 当前PID参数只给了Kp所以只加比例项
+            diff_angle();
+            angleloop_output = Angleloop_PIDParam.Kp * Angleloop_PIDItem.error;
+
+            SpeedLoop_set(BSP_MOTOR_A, base_Anglespeed + angleloop_output); // 右轮
+            SpeedLoop_set(BSP_MOTOR_B, base_Anglespeed - angleloop_output); // 左轮
+
+            break;
+        default :
+            break;;
+
     }
 }

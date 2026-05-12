@@ -54,6 +54,11 @@ void NULL_Test(void)
     WR_TASK_PERIODIC(NULL_test_task, 10);
 }
 
+void Turn_leftangle(void)
+{
+    Angleloop_PIDParam.target += 90.0f;
+}
+
 int main(void)
 {
     SYSCFG_DL_init();
@@ -61,24 +66,33 @@ int main(void)
     BspUART_Init();    
     BspEncoder_Init();
     BspMotor_Init();
+    anglebase_init();
     // BspTarck_Init();
     SpeedLop_Init();
 
     while (1) 
     {
+        // Track_Task();
 
-        Track_Task();
+        // while (Angleloop_PIDParam.target > 180.0f)
+        //     Angleloop_PIDParam.target += -360.0f;
+        // while (Angleloop_PIDParam.target < -180.0f)
+        //     Angleloop_PIDParam.target += 360.0f;
+
         // BspMotor_SetSpeed(BSP_MOTOR_A, 10000); // 右轮
         // BspMotor_SetSpeed(BSP_MOTOR_B, 10000); // 左轮 
         // SpeedLoop_set(BSP_MOTOR_A, 40);
         // SpeedLoop_set(BSP_MOTOR_B, 40);
+
         // 长按中间按键开启循迹调试模式
         WR_KeyControlTask(TrackLop_Init, &bsp_key_param[Key_center].key_longpressflag);
+        WR_KeyControlTask(AngleLop_Init, &bsp_key_param[Key_center].key_shortpressflag);
 
-
+        // 按下左键让角度环目标左转90°
+        WR_KeyControlTask(Turn_leftangle, &bsp_key_param[Key_left].key_pressflag);
 
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_right].key_releaseflag);
-        WR_KeyControlTask(LED_Test, &bsp_key_param[Key_left].key_pressflag);
+       
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_up].key_longpressflag);
         WR_KeyControlTask(LED_Test, &bsp_key_param[Key_down].key_releaseflag);
 
@@ -87,17 +101,20 @@ int main(void)
         // vofa_arry[0] = bsp_encoder_param[E1].speed;
         // vofa_arry[1] = bsp_encoder_param[E2].speed;
 
-        vofa_arry[0] = Yaw_received;
+        // vofa_arry[0] = Yaw_received;
+        // vofa_arry[1] = Angleloop_PIDParam.target;
         // vofa_arry[0] = coord;
         // vofa_arry[1] = last_coord;
         // vofa_arry[2] = qty;
 
-        // vofa_arry[0] = coord;
-        // vofa_arry[1] = last_coord;
+        // vofa_arry[2] = coord;
+        // vofa_arry[3] = last_coord;
 
-        VOFA_SendData(vofa_arry, 1);
+        VOFA_SendData(vofa_arry, 4);
     }
 }
+
+
 
 
 

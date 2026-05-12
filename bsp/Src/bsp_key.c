@@ -84,8 +84,8 @@ void BSP_KeyTask(void)
         {
             // 按键空闲状态
             if(bsp_key_param[i].endtick == bsp_key_param[i].starttick);
-            // 短按按键判断时间小于200ms
-            else if(bsp_key_param[i].endtick - bsp_key_param[i].starttick < 200)
+            // 短按按键判断时间小于300ms
+            else if(bsp_key_param[i].endtick - bsp_key_param[i].starttick < 300)
             {
                 bsp_key_param[i].key_shortpressflag = true;
                 bsp_key_param[i].endtick = bsp_key_param[i].starttick;
