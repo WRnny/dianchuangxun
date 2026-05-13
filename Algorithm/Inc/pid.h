@@ -9,7 +9,7 @@
 #include "math.h"
 
 #define D_TERM_FILTER 0.2f // 滤波系数
-#define ABS(x) x > 0 ? x : -x
+#define ABS(x) x >= 0 ? x : -x
 
 typedef struct{
     float Kp;
@@ -33,6 +33,7 @@ typedef struct{
 extern PID_Param SpeedloopL_PIDParam;
 extern PID_Param SpeedloopR_PIDParam;
 extern PID_Param Angleloop_PIDParam;
+extern PID_Item Angleloop_PIDItem;
 
 
 /**
@@ -41,11 +42,19 @@ extern PID_Param Angleloop_PIDParam;
  */
 void SpeedLop_Init(void);
 
+void SpeedLop_DeInit(void);
+
 /**
  * @brief 开启循迹环
  * 
  */
 void TrackLop_Init(void);
+
+/**
+ * @brief 关闭循迹位置环
+ * 
+ */
+void TrackLop_DeInit(void);
 
 /**
  * @brief 上电初始化的时候获取基本角度值
@@ -59,6 +68,18 @@ void anglebase_init(void);
  * 
  */
 void AngleLop_Init(void);
+
+/**
+ * @brief 关闭角度环
+ * 
+ */
+void AngleLop_DeInit(void);
+
+/**
+ * @brief 将角度误差转换成最短路径
+ * 
+ */
+void diff_angle(void);
 
 /**
  * @brief PID计算逻辑

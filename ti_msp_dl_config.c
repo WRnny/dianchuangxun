@@ -228,10 +228,13 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
 		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
 
+    DL_GPIO_initDigitalOutput(Alert_led_alert_led_IOMUX);
+
     DL_GPIO_setLowerPinsPolarity(GPIOA, DL_GPIO_PIN_12_EDGE_RISE);
     DL_GPIO_clearInterruptStatus(GPIOA, Encoder_E2_A_PIN);
     DL_GPIO_enableInterrupt(GPIOA, Encoder_E2_A_PIN);
-    DL_GPIO_clearPins(GPIOB, Debug_led_Debug_led1_PIN);
+    DL_GPIO_clearPins(GPIOB, Debug_led_Debug_led1_PIN |
+		Alert_led_alert_led_PIN);
     DL_GPIO_setPins(GPIOB, Motor_DIR_AIN2_PIN |
 		Motor_DIR_AIN1_PIN |
 		Motor_DIR_BIN1_PIN |
@@ -240,7 +243,8 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		Motor_DIR_AIN2_PIN |
 		Motor_DIR_AIN1_PIN |
 		Motor_DIR_BIN1_PIN |
-		Motor_DIR_BIN2_PIN);
+		Motor_DIR_BIN2_PIN |
+		Alert_led_alert_led_PIN);
     DL_GPIO_setLowerPinsPolarity(GPIOB, DL_GPIO_PIN_6_EDGE_RISE);
     DL_GPIO_setUpperPinsPolarity(GPIOB, DL_GPIO_PIN_23_EDGE_RISE |
 		DL_GPIO_PIN_27_EDGE_RISE);
@@ -551,7 +555,7 @@ static const DL_TimerG_ClockConfig gPidAngle_TaskClockConfig = {
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * PidAngle_Task_INST_LOAD_VALUE = (10 ms * 500000 Hz) - 1
+ * PidAngle_Task_INST_LOAD_VALUE = (50 ms * 500000 Hz) - 1
  */
 static const DL_TimerG_TimerConfig gPidAngle_TaskTimerConfig = {
     .period     = PidAngle_Task_INST_LOAD_VALUE,

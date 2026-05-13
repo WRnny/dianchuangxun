@@ -13,6 +13,16 @@ void SpeedLop_Init(void)
     NVIC_EnableIRQ(PidSpeed_Task_INST_INT_IRQN);
 }
 
+void SpeedLop_DeInit(void)
+{
+        // 清除速度环定时器中断标志位
+    NVIC_ClearPendingIRQ(PidSpeed_Task_INST_INT_IRQN);
+
+    // 使能速度环定时器中断
+    NVIC_DisableIRQ(PidSpeed_Task_INST_INT_IRQN);
+
+}
+
 /**
  * @brief 开启循迹环
  * 
@@ -24,6 +34,7 @@ void TrackLop_Init(void)
 
     // 使能循迹环定时器中断
     NVIC_EnableIRQ(PidTrack_Task_INST_INT_IRQN);
+
 }
 
 /**
@@ -60,12 +71,13 @@ void AngleLop_Init(void)
  * 
  */
 void TrackLop_DeInit(void)
-{
+{   
     // 清除循迹位置环定时器中断标志位
     NVIC_ClearPendingIRQ(PidTrack_Task_INST_INT_IRQN);
 
     // 失能循迹位置环定时器中断
     NVIC_DisableIRQ(PidTrack_Task_INST_INT_IRQN);
+
 }
 
 
@@ -220,7 +232,7 @@ PID_Item Trackloop_PIDItem = {
     .ZERO = 0.0f
 };
 
-int base_trackspeed = 35;
+int base_trackspeed = 25;
 volatile float trackloop_output = 0.0f;
 
 /**
@@ -233,7 +245,7 @@ void PidTrack_Task_INST_IRQHandler(void)
     {
         case DL_TIMER_IIDX_ZERO:
 
-            Track_Task();
+            // Track_Task();
 
             trackloop_output = Pid_Calculate(&Trackloop_PIDParam, &Trackloop_PIDItem, coord, 0.05);
 
@@ -249,7 +261,7 @@ void PidTrack_Task_INST_IRQHandler(void)
 
 
 PID_Param Angleloop_PIDParam = {
-    .Kp = 0.8f,
+    .Kp = 0.5f,
     .Ki = 0.0f,
     .Kd = 0.0f,
     .target = 0.0f 
@@ -263,7 +275,7 @@ PID_Item Angleloop_PIDItem = {
     .ZERO = 1.0f
 };
 
-int base_Anglespeed = 35;
+int base_Anglespeed = 25;
 volatile float angleloop_output = 0.0f;
 
 /**
@@ -314,7 +326,7 @@ void PidAngle_Task_INST_IRQHandler(void)
              */
 
             // 当前PID参数只给了Kp所以只加比例项
-            diff_angle();
+            // diff_angle();
             angleloop_output = Angleloop_PIDParam.Kp * Angleloop_PIDItem.error;
 
             SpeedLoop_set(BSP_MOTOR_A, base_Anglespeed + angleloop_output); // 右轮

@@ -71,4 +71,4 @@
   ..\..\source\ti\driverlib\m0p\dl_systick.h ..\User\Inc\my_Ticks.h \
   ..\bsp\Inc\bsp_key.h ..\bsp\Inc\bsp_uart.h ..\bsp\Inc\bsp_track.h \
   ..\bsp\Inc\bsp_motor.h ..\Algorithm\Inc\pid.h ..\bsp\Inc\bsp_encoder.h \
-  ..\bsp\Inc\bsp_buzzer.h
+  ..\bsp\Inc\bsp_buzzer.h ..\User\Inc\Task.h ..\User\Inc\Alert.h

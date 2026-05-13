@@ -1,4 +1,4 @@
-./objects/task.o: ..\User\Src\Task.c ..\User\Inc\Task.h \
+./objects/alert.o: ..\User\Src\Alert.c ..\User\Inc\Alert.h \
   ..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
@@ -68,7 +68,5 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\bsp\Inc\bsp_key.h \
-  ..\User\Inc\my_Ticks.h ..\bsp\Inc\bsp_track.h ..\bsp\Inc\bsp_motor.h \
-  ..\Algorithm\Inc\pid.h ..\bsp\Inc\bsp_encoder.h ..\bsp\Inc\bsp_uart.h \
-  ..\bsp\Inc\bsp_buzzer.h ..\User\Inc\Alert.h
+  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\User\Inc\my_Ticks.h \
+  ..\bsp\Inc\bsp_buzzer.h

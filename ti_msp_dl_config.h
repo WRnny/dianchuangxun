@@ -139,7 +139,7 @@ extern "C" {
 #define PidAngle_Task_INST                                               (TIMG0)
 #define PidAngle_Task_INST_IRQHandler                           TIMG0_IRQHandler
 #define PidAngle_Task_INST_INT_IRQN                             (TIMG0_INT_IRQn)
-#define PidAngle_Task_INST_LOAD_VALUE                                    (4999U)
+#define PidAngle_Task_INST_LOAD_VALUE                                   (24999U)
 
 
 
@@ -267,6 +267,12 @@ extern "C" {
 /* Defines for Track_7: GPIOB.21 with pinCMx 49 on package pin 20 */
 #define Track_Track_7_PIN                                       (DL_GPIO_PIN_21)
 #define Track_Track_7_IOMUX                                      (IOMUX_PINCM49)
+/* Port definition for Pin Group Alert_led */
+#define Alert_led_PORT                                                   (GPIOB)
+
+/* Defines for alert_led: GPIOB.18 with pinCMx 44 on package pin 15 */
+#define Alert_led_alert_led_PIN                                 (DL_GPIO_PIN_18)
+#define Alert_led_alert_led_IOMUX                                (IOMUX_PINCM44)
 
 
 
